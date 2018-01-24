@@ -1,0 +1,13 @@
+{
+    "name": "atufkas/changelog-toolkit",
+    "description": "Track, transform and present change log entries.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthias Lienau",
+            "email": "matthias@mlienau.de"
+        }
+    ],
+    "require": {}
+}
