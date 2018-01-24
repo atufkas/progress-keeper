@@ -1,13 +1,23 @@
 {
-    "name": "atufkas/changelog-toolkit",
-    "description": "Track, transform and present change log entries.",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Matthias Lienau",
-            "email": "matthias@mlienau.de"
-        }
-    ],
-    "require": {}
+  "name": "atufkas/progress-keeper",
+  "description": "Track, transform and present change log entries.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Matthias Lienau",
+      "email": "matthias@mlienau.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "atufkas\\ProgressKeeper\\": "src/atufkas/ProgressKeeper"
+    }
+  },
+  "require": {
+    "php": ">=5.6.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7"
+  }
 }

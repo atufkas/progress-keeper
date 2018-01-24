@@ -1,2 +1,2 @@
-# changelog-toolkit
+# progress-keeper
 Track, transform and present change log entries.
