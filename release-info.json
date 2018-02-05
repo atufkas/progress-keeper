@@ -1,0 +1,18 @@
+{
+  "name": "Progress-Keeper",
+  "desc": "Track, transform and present change log entries.",
+  "releases": [
+    {
+      "version": "0.1.0",
+      "date": "2018-01-31",
+      "remarks": "Initial release.",
+      "changelog": [
+        {
+          "date": "2018-01-31",
+          "type": "feature",
+          "desc": "Very first sketch using a Reader/Presenter interface concept and a ProgressKeeperFactory."
+        }
+      ]
+    }
+  ]
+}
