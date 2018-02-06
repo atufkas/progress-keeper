@@ -110,7 +110,7 @@ class LogEntryType
         ],
         self::PGTYPE_STYLE => [
             'style',
-            'clseanup',
+            'cleanup',
             'cleanups',
             'formatting',
             'formatted'
