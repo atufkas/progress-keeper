@@ -11,9 +11,9 @@ API may change frequently. Feel free to ask, comment and contribute! +++
 ## What's this? (the short story)
 
 This project aims to address the problem of generating **user as well as developer friendly change log 
-catalogues supporting various formats, generated from various sources**. One goal is to aggregate based
-on relevance for specific audience. It follows some best practices, recommendations and proposals like
-the [Conventional Commits Specification](https://conventionalcommits.org/).
+catalogues supporting various formats, generated from various sources**. One major goal is to **aggregate change
+log information based on relevance for specific audience**. The implementation and specification of formats follows
+some best practices, recommendations and proposals like the [Conventional Commits Specification](https://conventionalcommits.org/).
 
 
 ## State
@@ -40,7 +40,7 @@ Run tests
     $ php ./composer.phar run-script test
     
     
-## Related to || Heavily inspired by
+## Related to + heavily inspired by
 
 * [keep a changelog](https://github.com/olivierlacan/keep-a-changelog) - If you build software, keep a changelog.
 * [Conventional Commits Specification](https://conventionalcommits.org/)

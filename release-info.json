@@ -9,6 +9,12 @@
       "changelog": [
         {
           "date": "2018-02-06",
+          "type": "doc",
+          "desc": "Clarified main goals of this project + some cosmetic changes.",
+          "audience": "all"
+        },
+        {
+          "date": "2018-02-06",
           "type": "feat",
           "desc": "Added classes representing log entries and releases.",
           "audience": "all"
