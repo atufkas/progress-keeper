@@ -1,5 +1,7 @@
 # progress-keeper
 
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
 Track, transform and present change log entries.
 
 ++ **Attention**: Project is currently in the state of an early stage concept under active development. 
@@ -10,10 +12,11 @@ API may change frequently. Feel free to ask, comment and contribute! +++
 
 This project aims to address the problem of generating **user as well as developer friendly change log 
 catalogues supporting various formats, generated from various sources**. One goal is to aggregate based
-on relevance for specific audience. It follows some best practices, de facto standards and proposals.
+on relevance for specific audience. It follows some best practices, recommendations and proposals like
+the [Conventional Commits Specification](https://conventionalcommits.org/).
 
 
-## Dev state
+## State
 
 There's currently a very rough sketch using a Reader/Presenter interface concept and a ProgressKeeperFactory 
 for dynamically instantiating a Reader-Presenter output vector.
@@ -36,3 +39,12 @@ Run tests
     
     $ php ./composer.phar run-script test
     
+    
+## Related to || Heavily inspired by
+
+* [keep a changelog](https://github.com/olivierlacan/keep-a-changelog) - If you build software, keep a changelog.
+* [Conventional Commits Specification](https://conventionalcommits.org/)
+* [Angular: "Commit Message Guidelines"](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)
+* [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) - Generate a changelog from git metadata
+- [commitizen](https://github.com/commitizen/cz-cli) - Simple commit conventions for internet citizens
+* [commitlint](https://github.com/marionebl/commitlint) - Lint commit messages

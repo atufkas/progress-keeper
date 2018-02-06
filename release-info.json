@@ -3,6 +3,18 @@
   "desc": "Track, transform and present change log entries.",
   "releases": [
     {
+      "version": "0.2.0",
+      "date": "2018-02-06",
+      "remarks": "Work in progress.",
+      "changelog": [
+        {
+          "date": "2018-02-06",
+          "type": "doc",
+          "desc": "Committing this project to the follow the principles of conventional-changelog and keep-a-changelog."
+        }
+      ]
+    },
+    {
       "version": "0.1.0",
       "date": "2018-01-31",
       "remarks": "Initial release.",
