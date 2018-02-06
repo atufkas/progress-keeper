@@ -4,9 +4,15 @@
   "releases": [
     {
       "version": "0.2.0",
-      "date": "2018-02-06",
+      "date": "2018-02-07",
       "remarks": "Work in progress.",
       "changelog": [
+        {
+          "date": "2018-02-07",
+          "type": "fix",
+          "desc": "Only mandatory log entry fields would be correctly set by parse-from-array method.",
+          "audience": "all"
+        },
         {
           "date": "2018-02-06",
           "type": "doc",

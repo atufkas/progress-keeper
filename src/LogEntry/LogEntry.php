@@ -41,10 +41,10 @@ class LogEntry
 
     /**
      * LogEntry constructor.
-     * @param $type
-     * @param $audience
-     * @param \DateTimeImmutable $date
-     * @param $desc
+     * @param string $type
+     * @param string $audience
+     * @param \DateTimeImmutable|null $date
+     * @param null $desc
      * @throws LogEntryException
      */
     public function __construct($type = 'feat', $audience = 'all', \DateTimeImmutable $date = null, $desc = null)
@@ -72,12 +72,13 @@ class LogEntry
             if (!isset($entryArr[$mandatoryKey])) {
                 throw new LogEntryException(sprintf('Mandatory key "%s" not found in log entry array.', $mandatoryKey));
             }
+        }
 
-            $value = $entryArr[$mandatoryKey];
+        foreach ($entryArr as $key => $value) {
 
-            switch($mandatoryKey) {
+            switch($key) {
                 case 'type':
-                    $this->setType($this->getCanonicalType($value));
+                    $this->setType($this->getCanonicalType(strtolower($value)));
                     break;
 
                 case 'date':
