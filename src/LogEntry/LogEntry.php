@@ -61,10 +61,10 @@ class LogEntry
     }
 
     /**
-     * @param $entryArr
+     * @param array $entryArr
      * @throws LogEntryException
      */
-    public function parseFromArray($entryArr)
+    public function parseFromArray(array $entryArr)
     {
         $mandatoryKeys = ['date', 'type', 'desc'];
 

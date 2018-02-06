@@ -29,7 +29,7 @@ class Release
     /**
      * @var array
      */
-    protected $logEntries;
+    protected $logEntries = [];
 
     /**
      * Release constructor.
@@ -40,14 +40,21 @@ class Release
     public function __construct($versionString = null, \DateTimeImmutable $date = null, $desc = null)
     {
         $this->versionString = $versionString;
+
+        if (!$date) {
+            $date = new \DateTimeImmutable('now');
+        }
+
         $this->date = $date;
         $this->desc = $desc;
     }
+
     /**
-     * @param $entryArr
+     * @param array $releaseArr
      * @throws ReleaseException
+     * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
      */
-    public function parseFromArray($releaseArr)
+    public function parseFromArray(array $releaseArr)
     {
         $mandatoryKeys = ['date', 'version'];
 
@@ -55,10 +62,11 @@ class Release
             if (!isset($releaseArr[$mandatoryKey])) {
                 throw new ReleaseException(sprintf('Mandatory key "%s" not found in log release array.', $mandatoryKey));
             }
+        }
 
-            $value = $releaseArr[$mandatoryKey];
+        foreach ($releaseArr as $key => $value) {
 
-            switch($mandatoryKey) {
+            switch ($key) {
                 case 'version':
                     $this->setVersionString($value);
                     break;
@@ -72,6 +80,12 @@ class Release
                 case 'remarks':
                     $this->setDesc($value);
                     break;
+
+                case 'changelog':
+                    foreach ($value as $rawLogEntry) {
+                        $this->addLogEntryFromArray($rawLogEntry);
+                    }
+                    break;
             }
         }
     }
@@ -81,7 +95,18 @@ class Release
      */
     public function addLogEntry(LogEntry $logEntry)
     {
-        $this->logEntries[] = $logEntry;
+        array_push($this->logEntries, $logEntry);
+    }
+
+    /**
+     * @param array $logEntryArr
+     * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException#
+     */
+    public function addLogEntryFromArray(array $logEntryArr)
+    {
+        $logEntry = new LogEntry();
+        $logEntry->parseFromArray($logEntryArr);
+        array_push($this->logEntries, $logEntry);
     }
 
     /**

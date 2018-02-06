@@ -9,6 +9,12 @@
       "changelog": [
         {
           "date": "2018-02-07",
+          "type": "feat",
+          "desc": "Added methods for adding log entries to releases.",
+          "audience": "all"
+        },
+        {
+          "date": "2018-02-07",
           "type": "fix",
           "desc": "Only mandatory log entry fields would be correctly set by parse-from-array method.",
           "audience": "all"

@@ -3,6 +3,25 @@
   "desc": "The app with forms that make you happy!",
   "releases": [
     {
+      "version": "1.0",
+      "date": "2018-01-30 12:12",
+      "remarks": "Now our app is ready for production.",
+      "changelog": [
+        {
+          "date": "2018-01-26",
+          "type": "feat",
+          "ctxt": "all",
+          "desc": "Added a batch mode for editing multiple records at once."
+        },
+        {
+          "date": "2018-01-17",
+          "type": "fix",
+          "ctxt": "all",
+          "desc": "Validation failed when whitespace was transmitted via form value."
+        }
+      ]
+    },
+    {
       "version": "0.2.0",
       "date": "2018-01-24 17:30",
       "remarks": "This version introduces this release log, updates internal dependencies and adds support for docker.",
