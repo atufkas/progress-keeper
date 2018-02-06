@@ -46,5 +46,5 @@ Run tests
 * [Conventional Commits Specification](https://conventionalcommits.org/)
 * [Angular: "Commit Message Guidelines"](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)
 * [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) - Generate a changelog from git metadata
-- [commitizen](https://github.com/commitizen/cz-cli) - Simple commit conventions for internet citizens
+* [commitizen](https://github.com/commitizen/cz-cli) - Simple commit conventions for internet citizens
 * [commitlint](https://github.com/marionebl/commitlint) - Lint commit messages
