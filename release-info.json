@@ -10,12 +10,14 @@
         {
           "date": "2018-02-06",
           "type": "feat",
-          "desc": "Added classes representing log entries and releases."
+          "desc": "Added classes representing log entries and releases.",
+          "audience": "all"
         },
         {
           "date": "2018-02-06",
           "type": "doc",
-          "desc": "Committing this project to the follow the principles of conventional-changelog and keep-a-changelog."
+          "desc": "Committing this project to the follow the principles of conventional-changelog and keep-a-changelog.",
+          "audience": "all"
         }
       ]
     },
@@ -27,7 +29,8 @@
         {
           "date": "2018-01-31",
           "type": "feature",
-          "desc": "Very first sketch using a Reader/Presenter interface concept and a ProgressKeeperFactory."
+          "desc": "Very first sketch using a Reader/Presenter interface concept and a ProgressKeeperFactory.",
+          "audience": "all"
         }
       ]
     }

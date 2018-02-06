@@ -14,10 +14,10 @@ class LogEntry
     protected $type;
 
     /**
-     * The log entry context, one of: all|dev|user
-     * @var $context
+     * The log entry audience, e.g.: all|dev|user
+     * @var $audience
      */
-    protected $context;
+    protected $audience;
 
     /**
      * @var \DateTimeImmutable
@@ -42,15 +42,15 @@ class LogEntry
     /**
      * LogEntry constructor.
      * @param $type
-     * @param $context
+     * @param $audience
      * @param \DateTimeImmutable $date
      * @param $desc
      * @throws LogEntryException
      */
-    public function __construct($type = 'feat', $context = 'all', \DateTimeImmutable $date = null, $desc = null)
+    public function __construct($type = 'feat', $audience = 'all', \DateTimeImmutable $date = null, $desc = null)
     {
         $this->type = $this->getCanonicalType($type);;
-        $this->context = $context;
+        $this->audience = $audience;
 
         if (! $date) {
             $date = new \DateTimeImmutable('now');
@@ -89,9 +89,9 @@ class LogEntry
                     $this->setDesc($value);
                     break;
 
-                case 'ctxt':
-                case 'context':
-                    $this->setContext($value);
+                case 'adnc':
+                case 'audience':
+                    $this->setAudience($value);
                     break;
 
                 case 'body':
@@ -144,17 +144,17 @@ class LogEntry
     /**
      * @return mixed
      */
-    public function getContext()
+    public function getAudience()
     {
-        return $this->context;
+        return $this->audience;
     }
 
     /**
-     * @param mixed $context
+     * @param mixed $audience
      */
-    public function setContext($context)
+    public function setAudience($audience)
     {
-        $this->context = $context;
+        $this->audience = $audience;
     }
 
     /**
