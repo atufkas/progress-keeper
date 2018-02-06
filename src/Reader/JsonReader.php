@@ -31,6 +31,8 @@ class JsonReader implements ReaderInterface
         }
 
         $logEntries = json_decode($jsonData);
+
+        // TODO: Create logEntries objects from new LogEntry class, adjust interface and presenter!
         return $logEntries;
     }
 

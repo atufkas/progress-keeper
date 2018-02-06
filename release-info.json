@@ -9,6 +9,11 @@
       "changelog": [
         {
           "date": "2018-02-06",
+          "type": "feat",
+          "desc": "Added classes representing log entries and releases."
+        },
+        {
+          "date": "2018-02-06",
           "type": "doc",
           "desc": "Committing this project to the follow the principles of conventional-changelog and keep-a-changelog."
         }
