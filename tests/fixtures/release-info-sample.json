@@ -10,14 +10,14 @@
         {
           "date": "2018-01-26",
           "type": "feat",
-          "ctxt": "all",
-          "desc": "Added a batch mode for editing multiple records at once."
+          "desc": "Added a batch mode for editing multiple records at once.",
+          "audience": "all"
         },
         {
           "date": "2018-01-17",
           "type": "fix",
-          "ctxt": "all",
-          "desc": "Validation failed when whitespace was transmitted via form value."
+          "desc": "Validation failed when whitespace was transmitted via form value.",
+          "audience": "all"
         }
       ]
     },
@@ -29,32 +29,32 @@
         {
           "date": "2018-01-23",
           "type": "feature",
-          "ctxt": "all",
-          "desc": "Changes will now be tracked and displayed with ProgressKeeper using JSON files and HTML-Bootstrap rendering."
+          "desc": "Changes will now be tracked and displayed with ProgressKeeper using JSON files and HTML-Bootstrap rendering.",
+          "audience": "all"
         },
         {
           "date": "2018-01-23",
           "type": "feat",
-          "ctxt": "all",
-          "desc": "Added server side validation for form fields."
+          "desc": "Added server side validation for form fields.",
+          "audience": "all"
         },
         {
           "date": "2018-01-23",
           "type": "change",
-          "ctxt": "all",
-          "desc": "Form field 'gender' is now rendered as radio button instead of select menu."
+          "desc": "Form field 'gender' is now rendered as radio button instead of select menu.",
+          "audience": "all"
         },
         {
           "date": "2018-01-23",
           "type": "code",
-          "ctxt": "dev",
-          "desc": "Set platform dependency to PHP >= 5.6.0."
+          "desc": "Set platform dependency to PHP >= 5.6.0.",
+          "audience": "dev"
         },
         {
           "date": "2018-01-17",
           "type": "code",
-          "ctxt": "dev",
-          "desc": "Integrated docker support + setup."
+          "desc": "Integrated docker support + setup.",
+          "audience": "dev"
         }
       ]
     },
@@ -66,14 +66,14 @@
         {
           "date": "2018-01-23",
           "type": "enhancement",
-          "ctxt": "all",
-          "desc": "Form style is now more compact so that whole form is visible even on small screens."
+          "desc": "Form style is now more compact so that whole form is visible even on small screens.",
+          "audience": "all"
         },
         {
           "date": "2018-01-23",
           "type": "bugfix",
-          "ctxt": "all",
-          "desc": "Form cannot be submitted if name field is left empty but creates no notification."
+          "desc": "Form cannot be submitted if name field is left empty but creates no notification.",
+          "audience": "all"
         }
       ]
     },
@@ -84,15 +84,15 @@
       "changelog": [
         {
           "date": "2018-01-23",
-          "type": "feature",
-          "ctxt": "all",
-          "desc": "Added basic CRUD functions."
+          "type": "feat",
+          "desc": "Added basic CRUD functions.",
+          "audience": "all"
         },
         {
           "date": "2018-01-23",
-          "type": "chore",
-          "ctxt": "dev",
-          "desc": "Added basic tooling and created skeleton."
+          "type": "feat",
+          "desc": "Added basic tooling and created skeleton.",
+          "audience": "all"
         }
       ]
     }

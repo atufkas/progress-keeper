@@ -10,6 +10,12 @@
         {
           "date": "2018-02-07",
           "type": "feat",
+          "desc": "Added methods for adding releases to change logs. Object model hierarchy is now: change log -> releases -> log entries",
+          "audience": "all"
+        },
+        {
+          "date": "2018-02-07",
+          "type": "feat",
           "desc": "Added methods for adding log entries to releases.",
           "audience": "all"
         },

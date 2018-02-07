@@ -16,6 +16,7 @@ class ProgressKeeperFactory
      * @param $sourceType
      * @param $targetType
      * @param $source
+     * @return mixed
      */
     public static function getChangeLog($sourceType, $targetType, $source)
     {
@@ -32,23 +33,32 @@ class ProgressKeeperFactory
             static::checkClass($readerClassName, $readerInterface);
             static::checkClass($presenterClassName, $presenterInterface);
         } catch (\Exception $e) {
-            echo "Implementation missing or incomplete: " . $e->getMessage();
+            echo "\n";
+            echo 'Implementation missing or incomplete: ' . $e->getMessage() . "\n";
+            echo 'in ' . $e->getFile() . ':' . $e->getLine() . "\n";
             exit;
         }
 
-        /**
-         * @var $reader ReaderInterface
-         */
-        $reader = new $readerClassName();
-        $reader->setDataSource($source);
+        try {
+            /**
+             * @var $reader ReaderInterface
+             */
+            $reader = new $readerClassName();
+            $reader->setDataSource($source);
 
-        /**
-         * @var $presenter PresenterInterface
-         */
-        $presenter = new $presenterClassName();
+            /**
+             * @var $presenter PresenterInterface
+             */
+            $presenter = new $presenterClassName();
 
-        $pk = new ProgressKeeper($reader, $presenter);
-        return $pk->getOutput();
+            $pk = new ProgressKeeper($reader, $presenter);
+            return $pk->getOutput();
+        } catch (\Exception $e) {
+            echo "\n";
+            echo 'Could not instantiate progress keeper: ' . $e->getMessage() . "\n";
+            echo 'in ' . $e->getFile() . ':' . $e->getLine() . "\n";
+            exit;
+        }
     }
 
     /**

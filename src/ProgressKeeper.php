@@ -5,6 +5,7 @@ namespace atufkas\ProgressKeeper;
 
 use atufkas\ProgressKeeper\Presenter\PresenterInterface;
 use atufkas\ProgressKeeper\Reader\ReaderInterface;
+use atufkas\ProgressKeeper\Release\ReleaseException;
 
 /**
  * Class ProgressKeeper
@@ -35,10 +36,14 @@ class ProgressKeeper
 
     /**
      * @return mixed
+     * @throws LogEntry\LogEntryException
+     * @throws ReleaseException
      */
     public function getOutput()
     {
-        return $this->getPresenter()->transform($this->getReader()->read());
+        return $this->getPresenter()
+            ->setChangeLog($this->getReader()->getChangeLog())
+            ->getOutput();
     }
 
     /**
@@ -50,11 +55,13 @@ class ProgressKeeper
     }
 
     /**
-     * @param mixed $reader
+     * @param $reader
+     * @return $this
      */
     public function setReader($reader)
     {
         $this->reader = $reader;
+        return $this;
     }
 
     /**
@@ -67,9 +74,11 @@ class ProgressKeeper
 
     /**
      * @param $presenter
+     * @return $this
      */
     public function setPresenter($presenter)
     {
         $this->presenter = $presenter;
+        return $this;
     }
 }

@@ -2,12 +2,15 @@
 
 namespace atufkas\ProgressKeeper\Reader;
 
+use atufkas\ProgressKeeper\ChangeLog;
+
 /**
  * Class JsonReader
  * @package atufkas\ProgressKeeper\Reader
  */
 class JsonReader implements ReaderInterface
 {
+    protected $rawVersionLog;
     protected $dataSource;
 
     /**
@@ -19,10 +22,44 @@ class JsonReader implements ReaderInterface
         $this->setDataSource($dataSource);
     }
 
-    public function read()
+    /**
+     * @return ChangeLog
+     * @throws \atufkas\ProgressKeeper\ChangeLogException
+     * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
+     * @throws \atufkas\ProgressKeeper\Release\ReleaseException
+     */
+    public function getChangeLog()
+    {
+        $rawVersionLog = $this->getRawVersionLog();
+        $changeLog = new ChangeLog();
+        $changeLog->parseFromArray($rawVersionLog);
+        return $changeLog;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRawVersionLog()
+    {
+        if ($this->rawVersionLog === null) {
+            $this->rawVersionLog = $this->getFromFile();
+        }
+
+        return $this->rawVersionLog;
+    }
+
+    /**
+     * Read data from JSON file in "release-info.json" format.
+     * @return mixed|string
+     */
+    protected function getFromFile()
     {
         $jsonData = null;
         $dataSource = $this->getDataSource();
+
+        if (!$dataSource) {
+            return '';
+        }
 
         if (is_string($dataSource)) {
             $jsonData = file_get_contents($dataSource);
@@ -30,10 +67,17 @@ class JsonReader implements ReaderInterface
             $jsonData = $dataSource;
         }
 
-        $logEntries = json_decode($jsonData);
+        return json_decode($jsonData, true);
+    }
 
-        // TODO: Create logEntries objects from new LogEntry class, adjust interface and presenter!
-        return $logEntries;
+    /**
+     * @param $rawVersionlog
+     * @return $this
+     */
+    public function setRawVersionLog($rawVersionlog)
+    {
+        $this->rawVersionLog = $rawVersionlog;
+        return $this;
     }
 
     /**
@@ -45,10 +89,12 @@ class JsonReader implements ReaderInterface
     }
 
     /**
-     * @param mixed $dataSource
+     * @param $dataSource
+     * @return $this
      */
     public function setDataSource($dataSource)
     {
         $this->dataSource = $dataSource;
+        return $this;
     }
 }

@@ -2,65 +2,60 @@
 
 namespace atufkas\ProgressKeeper\Presenter;
 
+use atufkas\ProgressKeeper\LogEntry\LogEntry;
+use atufkas\ProgressKeeper\Release\Release;
+
 /**
  * Class HtmlPresenter
  * @package atufkas\ProgressKeeper\Presenter
  */
-class HtmlPresenter implements PresenterInterface
+class HtmlPresenter extends AbstractPresenter implements PresenterInterface
 {
-    protected $pkLog;
-    protected $htmlData;
-
     /**
-     * @return mixed
+     * @return string
      */
-    public function transform($pkLog)
+    public function getOutput()
     {
-        $this->htmlData .= '<div>';
-        $this->htmlData .= '<h1 class="pklog-name">' . $pkLog->name . '</h1>';
-        $this->htmlData .= '<span class="pklog-desc">' . $pkLog->desc . '</span>';
-        $this->htmlData .= '<ul class="pklog-versions">';
+        $ret = '<div class="pk">';
+        $ret .= '<h1 class="pk-name">' . $this->changeLog->getApplicationName() . '</h1>';
+        $ret .= '<span class="pk-desc">' . $this->changeLog->getApplicationDesc() . '</span>';
+        $ret .= '<ul class="pk-versions">';
 
-        foreach ($pkLog->releases as $release) {
-            $this->htmlData .= '<li>';
-            $this->htmlData .= '<h2 class="pklog-release-version">' . $release->version . '</h2>';
-            $this->htmlData .= '<span class="pklog-release-date">[ ' . $release->date . ' ]</span>';
-            $this->htmlData .= '<span class="pklog-release-remarks">' . $release->remarks . '</span>';
-            $this->htmlData .= '<ul>';
+        foreach ($this->changeLog->getReleases() as $release) {
+            /* @var Release $release */
+            $ret .= '<li class="pk-release">';
+            $ret .= '<h2 class="pk-release-version">' . $release->getVersionString() . '</h2>';
+            $ret .= '<span class="pk-release-date">[' . $release->getDate()->format('d.m.Y') . ']</span>';
+            $ret .= '&nbsp;';
+            $ret .= '<span class="pk-release-remarks">' . $release->getDesc() . '</span>';
+            $ret .= '<ul>';
 
-            foreach ($release->changelog as $logentry) {
-                $this->htmlData .= '<li class="pklog-release-changelog">';
-                $this->htmlData .= '<span class="pklog-release-changelog-type">[' . $logentry->type . ' ]</span>';
-                $this->htmlData .= '&nbsp;';
-                $this->htmlData .= '<span class="pklog-release-changelog-desc">' . $logentry->desc . '</span>';
-                $this->htmlData .= '&nbsp;';
-                $this->htmlData .= '<span class="pklog-release-changelog-date">[ ' . $logentry->date . ' ]</span>';
-                $this->htmlData .= '</li>';
+            foreach ($release->getLogEntries() as $logEntry) {
+                /* @var LogEntry $logEntry */
+                $ret .= '<li class="pk-logentries">';
+                $ret .= '<span class="pk-logentries-type">[' . $logEntry->getType() . ' ]</span>';
+                $ret .= '&nbsp;';
+                $ret .= '<span class="pk-logentries-desc">' . $logEntry->getDesc() . '</span>';
+                $ret .= '&nbsp;';
+                $ret .= '<span class="pk-logentries-date">[ ' . $logEntry->getDate()->format('d.m.Y') . ' ]</span>';
+                $ret .= '</li>';
             }
 
-            $this->htmlData .= '</ul>';
-            $this->htmlData .= '</li>';
+            $ret .= '</ul>';
+            $ret .= '</li>';
         }
 
-        $this->htmlData .= '</ul>';
-        $this->htmlData .= '</div>';
+        $ret .= '</ul>';
+        $ret .= '</div>';
 
-        return $this->getHtmlData();
+        return $ret;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getHtmlData()
+    public function __toString()
     {
-        return $this->htmlData;
-    }
-
-    /**
-     * @param mixed $htmlData
-     */
-    public function setHtmlData($htmlData)
-    {
-        $this->htmlData = $htmlData;
+        return $this->getOutput();
     }
 }

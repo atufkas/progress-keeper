@@ -52,7 +52,7 @@ class LogEntry
         $this->type = $this->getCanonicalType($type);;
         $this->audience = $audience;
 
-        if (! $date) {
+        if (!$date) {
             $date = new \DateTimeImmutable('now');
         }
 
@@ -76,7 +76,7 @@ class LogEntry
 
         foreach ($entryArr as $key => $value) {
 
-            switch($key) {
+            switch ($key) {
                 case 'type':
                     $this->setType($this->getCanonicalType(strtolower($value)));
                     break;
@@ -117,7 +117,7 @@ class LogEntry
             return $type;
         }
 
-        foreach(LogEntryType::PGTYPE_ALIASES as $key => $aliases) {
+        foreach (LogEntryType::PGTYPE_ALIASES as $key => $aliases) {
             if (in_array($type, $aliases)) {
                 return $key;
             }

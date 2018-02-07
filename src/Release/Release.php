@@ -72,7 +72,7 @@ class Release
                     break;
 
                 case 'date':
-                    $this->setDate(\DateTimeImmutable::createFromFormat('Y-m-d', $value));
+                    $this->setDate(\DateTimeImmutable::createFromFormat('Y-m-d', substr($value, 0, 10)));
                     break;
 
                 case 'desc':
@@ -106,7 +106,7 @@ class Release
     {
         $logEntry = new LogEntry();
         $logEntry->parseFromArray($logEntryArr);
-        array_push($this->logEntries, $logEntry);
+        $this->addLogEntry($logEntry);
     }
 
     /**
@@ -145,10 +145,12 @@ class Release
 
     /**
      * @param string $versionString
+     * @return $this
      */
     public function setVersionString($versionString)
     {
         $this->versionString = $versionString;
+        return $this;
     }
 
     /**
@@ -162,7 +164,7 @@ class Release
     /**
      * @param \DateTimeImmutable $date
      */
-    public function setDate($date)
+    public function setDate(\DateTimeImmutable $date)
     {
         $this->date = $date;
     }
@@ -177,10 +179,12 @@ class Release
 
     /**
      * @param string $desc
+     * @return $this
      */
     public function setDesc($desc)
     {
         $this->desc = $desc;
+        return $this;
     }
 
     /**
@@ -193,9 +197,11 @@ class Release
 
     /**
      * @param array $logEntries
+     * @return $this
      */
     public function setLogEntries($logEntries)
     {
         $this->logEntries = $logEntries;
+        return $this;
     }
 }

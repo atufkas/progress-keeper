@@ -3,6 +3,7 @@
 namespace atufkas\ProgressKeeper\Tests;
 
 
+use atufkas\ProgressKeeper\ChangeLog;
 use atufkas\ProgressKeeper\LogEntry\LogEntry;
 use atufkas\ProgressKeeper\LogEntry\LogEntryType;
 use atufkas\ProgressKeeper\ProgressKeeperFactory;
@@ -100,14 +101,51 @@ class ProgressKeeperTest extends TestCase
             $release = new Release();
             $release->parseFromArray($releaseArr);
 
-            $dateTime = \DateTimeImmutable::createFromFormat('Y-m-d', $releaseArr[ 'date' ]);
+            $dateTime = \DateTimeImmutable::createFromFormat('Y-m-d', substr($releaseArr['date'], 0, 10));
 
-            $this->assertEquals($releaseArr[ 'version' ], $release->getVersionString());
-            $this->assertEquals($releaseArr[ 'remarks' ], $release->getDesc());
+            $this->assertEquals($releaseArr['version'], $release->getVersionString());
+            $this->assertEquals($releaseArr['remarks'], $release->getDesc());
             $this->assertEquals($dateTime, $release->getDate());
 
-            $this->assertCount(count($releaseArr[ 'changelog' ]), $release->getLogEntries());
+            $this->assertCount(count($releaseArr['changelog']), $release->getLogEntries());
         }
+    }
+
+    /**
+     * @test
+     */
+    public function testCreateChangeLog()
+    {
+        $changeLog1 = new ChangeLog();
+        $this->assertNull($changeLog1->getApplicationDesc());
+        $this->assertNull($changeLog1->getApplicationName());
+        $this->assertEmpty($changeLog1->getReleases());
+
+        $appName = 'Wonder App';
+        $appDesc = 'The ultimate tool for everyone.';
+        $changeLog2 = new ChangeLog($appName, $appDesc);
+
+        $this->assertEquals($appName, $changeLog2->getApplicationName());
+        $this->assertEquals($appDesc, $changeLog2->getApplicationDesc());
+    }
+
+    /**
+     * @test
+     * @throws \atufkas\ProgressKeeper\ChangeLogException
+     * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
+     * @throws \atufkas\ProgressKeeper\Release\ReleaseException
+     */
+    public function testCreateChangeLogFromArray()
+    {
+        // Get samples from "base format" fixture file
+        $jsonData = json_decode(file_get_contents(static::$jsonReleaseInfoSampleFile), true);
+
+        $changeLog = new ChangeLog();
+        $changeLog->parseFromArray($jsonData);
+
+        $this->assertEquals($jsonData['name'], $changeLog->getApplicationName());
+        $this->assertEquals($jsonData['desc'], $changeLog->getApplicationDesc());
+        $this->assertNotEmpty($changeLog->getReleases());
     }
 
     /**
@@ -118,17 +156,8 @@ class ProgressKeeperTest extends TestCase
         $jsonReader = new JsonReader();
         $jsonReader->setDataSource(static::$jsonReleaseInfoSampleFile);
 
-        $pkLog = $jsonReader->read();
-
-        $this->assertObjectHasAttribute('name', $pkLog);
-        $this->assertObjectHasAttribute('desc', $pkLog);
-        $this->assertObjectHasAttribute('releases', $pkLog);
-
-        foreach ($pkLog->releases as $release) {
-            foreach (static::$releaseEntryMeta as $field) {
-                $this->assertObjectHasAttribute($field, $release);
-            }
-        }
+        $rawVersionLog = $jsonReader->getRawVersionLog();
+        $this->checkRawVersionLogFields($rawVersionLog);
     }
 
     /**
@@ -136,10 +165,27 @@ class ProgressKeeperTest extends TestCase
      * @throws \Exception
      * @throws \ReflectionException
      */
-    public function testGetChangelog()
+    public function testGetChangeLogJson2Html()
     {
         $htmlChangeLog = ProgressKeeperFactory::getChangeLog('json', 'html', static::$jsonReleaseInfoSampleFile);
-        $this->assertStringStartsWith('<div>', $htmlChangeLog);
+        $this->assertStringStartsWith('<div class="pk">', $htmlChangeLog);
         $this->assertStringEndsWith('</div>', $htmlChangeLog);
+    }
+
+    /**
+     * Check given intermediate "raw version log" array for mandatory fields
+     * @param $rawVersionLog
+     */
+    private function checkRawVersionLogFields($rawVersionLog)
+    {
+        $this->assertArrayHasKey('name', $rawVersionLog);
+        $this->assertArrayHasKey('desc', $rawVersionLog);
+        $this->assertArrayHasKey('releases', $rawVersionLog);
+
+        foreach ($rawVersionLog['releases'] as $release) {
+            foreach (static::$releaseEntryMeta as $field) {
+                $this->assertArrayHasKey($field, $release);
+            }
+        }
     }
 }
