@@ -3,10 +3,16 @@
   "desc": "Track, transform and present change log entries.",
   "releases": [
     {
-      "version": "0.2.0",
-      "date": "2018-02-07",
-      "remarks": "Work in progress.",
+      "version": "0.1.0",
+      "date": "2018-02-08",
+      "remarks": "Initial release: Provides a basic factory class methods allowing a json -> html transformation.",
       "changelog": [
+        {
+          "date": "2018-02-08",
+          "type": "chore",
+          "desc": "Release 0.1.0",
+          "audience": "dev"
+        },
         {
           "date": "2018-02-07",
           "type": "feat",
@@ -42,14 +48,7 @@
           "type": "doc",
           "desc": "Committing this project to the follow the principles of conventional-changelog and keep-a-changelog.",
           "audience": "all"
-        }
-      ]
-    },
-    {
-      "version": "0.1.0",
-      "date": "2018-01-31",
-      "remarks": "Initial release.",
-      "changelog": [
+        },
         {
           "date": "2018-01-31",
           "type": "feature",
