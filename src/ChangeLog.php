@@ -6,7 +6,7 @@ use atufkas\ProgressKeeper\Release\Release;
 use atufkas\ProgressKeeper\Release\ReleaseException;
 
 /**
- * Class Log
+ * Class ChangeLog
  * @package atufkas\ProgressKeeper
  */
 class ChangeLog
