@@ -90,7 +90,7 @@ class LogEntry
                     $this->setDesc($value);
                     break;
 
-                case 'adnc':
+                case 'audi':
                 case 'audience':
                     $this->setAudience($value);
                     break;

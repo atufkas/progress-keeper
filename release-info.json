@@ -3,6 +3,19 @@
   "desc": "Track, transform and present change log entries.",
   "releases": [
     {
+      "version": "0.2.0",
+      "date": "2018-02-08",
+      "remarks": "Work in progress...",
+      "changelog": [
+        {
+          "date": "2018-02-08",
+          "type": "update",
+          "desc": "BREAKING CHANGE: Field identifier (key) 'adnc' is replaced by 'audi' as an alias for 'audience'.",
+          "audience": "dev"
+        }
+      ]
+    },
+    {
       "version": "0.1.0",
       "date": "2018-02-08",
       "remarks": "Initial release: Provides a basic factory class methods allowing a json -> html transformation.",
