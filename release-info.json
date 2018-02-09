@@ -8,7 +8,13 @@
       "remarks": "Work in progress...",
       "changelog": [
         {
-          "date": "2018-02-08",
+          "date": "2018-02-09",
+          "type": "test",
+          "desc": "Renaming test classes after unintentionally adding fragment 'sample' to all test cases.",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-09",
           "type": "refac",
           "desc": "BREAKING CHANGE: Removed class ProgressKeeper and refactored methods of ProgressKeeperInterface.",
           "audience": "dev"

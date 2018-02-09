@@ -8,7 +8,7 @@ use atufkas\ProgressKeeper\ChangeLog;
  * Class ChangeLogTest
  * @package atufkas\ProgressKeeper\Tests
  */
-class ChangeLogSampleTest extends JsonSampleTestCase
+class ChangeLogTest extends JsonSampleTestCase
 {
     /**
      * @test

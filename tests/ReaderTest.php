@@ -9,7 +9,7 @@ use atufkas\ProgressKeeper\Reader\JsonReader;
  * Class ProgressKeeperFactoryTest
  * @package atufkas\ProgressKeeper\Tests
  */
-class ReaderSampleTest extends JsonSampleTestCase
+class ReaderTest extends JsonSampleTestCase
 {
     static $releaseEntryMeta = [
         'version',

@@ -9,7 +9,7 @@ use atufkas\ProgressKeeper\Release\Release;
  * Class ReleaseTest
  * @package atufkas\ProgressKeeper\Tests
  */
-class ReleaseSampleTest extends JsonSampleTestCase
+class ReleaseTest extends JsonSampleTestCase
 {
     /**
      * @test

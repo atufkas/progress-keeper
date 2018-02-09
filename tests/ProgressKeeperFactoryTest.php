@@ -10,7 +10,7 @@ use atufkas\ProgressKeeper\ProgressKeeperFactory;
  * Class ProgressKeeperFactoryTest
  * @package atufkas\ProgressKeeper\Tests
  */
-class ProgressKeeperFactorySampleTest extends JsonSampleTestCase
+class ProgressKeeperFactoryTest extends JsonSampleTestCase
 {
     /**
      * @test

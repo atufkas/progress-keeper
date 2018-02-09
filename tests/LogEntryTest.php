@@ -10,7 +10,7 @@ use atufkas\ProgressKeeper\LogEntry\LogEntryType;
  * Class LogEntryTest
  * @package atufkas\ProgressKeeper\Tests
  */
-class LogEntrySampleTest extends JsonSampleTestCase
+class LogEntryTest extends JsonSampleTestCase
 {
     /**
      * @test
