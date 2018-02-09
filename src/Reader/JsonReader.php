@@ -2,7 +2,7 @@
 
 namespace atufkas\ProgressKeeper\Reader;
 
-use atufkas\ProgressKeeper\ChangeLog;
+use atufkas\ProgressKeeper\Changelog;
 
 /**
  * Class JsonReader
@@ -23,17 +23,17 @@ class JsonReader implements ReaderInterface
     }
 
     /**
-     * @return ChangeLog
-     * @throws \atufkas\ProgressKeeper\ChangeLogException
+     * @return Changelog
+     * @throws \atufkas\ProgressKeeper\ChangelogException
      * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
      * @throws \atufkas\ProgressKeeper\Release\ReleaseException
      */
-    public function getChangeLog()
+    public function getChangelog()
     {
         $rawVersionLog = $this->getRawVersionLog();
-        $changeLog = new ChangeLog();
-        $changeLog->parseFromArray($rawVersionLog);
-        return $changeLog;
+        $changelog = new Changelog();
+        $changelog->parseFromArray($rawVersionLog);
+        return $changelog;
     }
 
     /**

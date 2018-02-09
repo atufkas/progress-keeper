@@ -2,7 +2,7 @@
 
 namespace atufkas\ProgressKeeper\Presenter;
 
-use atufkas\ProgressKeeper\ChangeLog;
+use atufkas\ProgressKeeper\Changelog;
 
 /**
  * Class AbstractPresenter
@@ -11,17 +11,17 @@ use atufkas\ProgressKeeper\ChangeLog;
 abstract class AbstractPresenter implements PresenterInterface
 {
     /**
-     * @var ChangeLog
+     * @var Changelog
      */
-    protected $changeLog;
+    protected $changelog;
 
     /**
      * @param array $releases
      * @return $this|PresenterInterface
      */
-    public function setChangeLog(ChangeLog $changeLog)
+    public function setChangelog(Changelog $changelog)
     {
-        $this->changeLog = $changeLog;
+        $this->changelog = $changelog;
         return $this;
     }
 }

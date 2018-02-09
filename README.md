@@ -2,7 +2,7 @@
 
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
-Track, transform and present change log entries.
+Track, transform and present changelog entries.
 
 ++ **Attention**: Project is currently in the state of an early stage concept under active development. 
 API may change frequently. Feel free to ask, comment and contribute! +++
@@ -10,7 +10,7 @@ API may change frequently. Feel free to ask, comment and contribute! +++
 
 ## What's this? (the short story)
 
-This project aims to address the problem of generating **user as well as developer friendly change log 
+This project aims to address the problem of generating **user as well as developer friendly changelog 
 catalogues supporting various formats, generated from various sources**. One major goal is to **aggregate change
 log information based on relevance for specific audience**. The implementation and specification of formats follows
 some best practices, recommendations and proposals like the [Conventional Commits Specification](https://conventionalcommits.org/).

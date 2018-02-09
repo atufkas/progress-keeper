@@ -2,7 +2,7 @@
 
 namespace atufkas\ProgressKeeper\Presenter;
 
-use atufkas\ProgressKeeper\ChangeLog;
+use atufkas\ProgressKeeper\Changelog;
 
 /**
  * Interface PresenterInterface
@@ -11,11 +11,11 @@ use atufkas\ProgressKeeper\ChangeLog;
 interface PresenterInterface
 {
     /**
-     * Set change log to be transformed
-     * @param ChangeLog $changeLog
+     * Set changelog to be transformed
+     * @param Changelog $changelog
      * @return $this|PresenterInterface
      */
-    public function setChangeLog(ChangeLog $changeLog);
+    public function setChangelog(Changelog $changelog);
 
     /**
      * Get transformed output

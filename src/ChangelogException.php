@@ -3,10 +3,10 @@
 namespace atufkas\ProgressKeeper;
 
 /**
- * Class ChangeLogException
+ * Class ChangelogException
  * @package atufkas\ProgressKeeper
  */
-class ChangeLogException extends \Exception
+class ChangelogException extends \Exception
 {
 
 }

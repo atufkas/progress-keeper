@@ -6,10 +6,10 @@ use atufkas\ProgressKeeper\Release\Release;
 use atufkas\ProgressKeeper\Release\ReleaseException;
 
 /**
- * Class ChangeLog
+ * Class Changelog
  * @package atufkas\ProgressKeeper
  */
-class ChangeLog
+class Changelog
 {
     /**
      * @var string
@@ -27,7 +27,7 @@ class ChangeLog
     protected $releases;
 
     /**
-     * ChangeLog constructor.
+     * Changelog constructor.
      * @param string $applicationName
      * @param string $applicationDesc
      * @param array $releases
@@ -40,22 +40,22 @@ class ChangeLog
     }
 
     /**
-     * @param array $changeLogArr
-     * @throws ChangeLogException
+     * @param array $changelogArr
+     * @throws ChangelogException
      * @throws LogEntry\LogEntryException
      * @throws ReleaseException
      */
-    public function parseFromArray(array $changeLogArr)
+    public function parseFromArray(array $changelogArr)
     {
         $mandatoryKeys = ['name', 'desc', 'releases'];
 
         foreach ($mandatoryKeys as $mandatoryKey) {
-            if (!isset($changeLogArr[$mandatoryKey])) {
-                throw new ChangeLogException(sprintf('Mandatory key "%s" not found in log release array.', $mandatoryKey));
+            if (!isset($changelogArr[$mandatoryKey])) {
+                throw new ChangelogException(sprintf('Mandatory key "%s" not found in log release array.', $mandatoryKey));
             }
         }
 
-        foreach ($changeLogArr as $key => $value) {
+        foreach ($changelogArr as $key => $value) {
 
             switch ($key) {
                 case 'name':
@@ -98,7 +98,7 @@ class ChangeLog
     }
 
     /**
-     * Filter log entries of all change log releases to those marked
+     * Filter log entries of all changelog releases to those marked
      * for given audience
      * @param array $audiences
      * @return $this

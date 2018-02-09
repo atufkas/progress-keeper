@@ -2,7 +2,7 @@
 
 namespace atufkas\ProgressKeeper\Reader;
 
-use atufkas\ProgressKeeper\ChangeLog;
+use atufkas\ProgressKeeper\Changelog;
 
 /**
  * Interface ReaderInterface
@@ -17,7 +17,7 @@ interface ReaderInterface
     public function setDataSource($dataSource);
 
     /**
-     * @return ChangeLog
+     * @return Changelog
      */
-    public function getChangeLog();
+    public function getChangelog();
 }

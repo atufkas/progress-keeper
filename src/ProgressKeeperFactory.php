@@ -13,14 +13,14 @@ use atufkas\ProgressKeeper\Reader\ReaderInterface;
 class ProgressKeeperFactory
 {
     /**
-     * Get change log object from given source and type.
+     * Get changelog object from given source and type.
      *
      * @param $source
      * @param $sourceType
      * @param array|string $audiences
-     * @return ChangeLog
+     * @return Changelog
      */
-    public static function getChangeLog($source, $sourceType, $audiences = ['*'])
+    public static function getChangelog($source, $sourceType, $audiences = ['*'])
     {
         $readerNamespace = '\\atufkas\\ProgressKeeper\\Reader\\';
         $readerInterface = $readerNamespace . 'ReaderInterface';
@@ -45,7 +45,7 @@ class ProgressKeeperFactory
              */
             $reader = new $readerClassName();
             $reader->setDataSource($source);
-            return $reader->getChangeLog()->filterToAudiences($audiences);
+            return $reader->getChangelog()->filterToAudiences($audiences);
         } catch (\Exception $e) {
             echo "\n";
             echo 'Could not instantiate progress keeper: ' . $e->getMessage() . "\n";
@@ -55,7 +55,7 @@ class ProgressKeeperFactory
     }
 
     /**
-     * Get transformed change log output from given source/type and converted
+     * Get transformed changelog output from given source/type and converted
      * to given target type.
      *
      * @param $source
@@ -64,7 +64,7 @@ class ProgressKeeperFactory
      * @param array|string $audiences
      * @return mixed
      */
-    public static function getConvertedChangeLog($source, $sourceType, $targetType, $audiences = ['*'])
+    public static function getConvertedChangelog($source, $sourceType, $targetType, $audiences = ['*'])
     {
         $presenterNamespace = '\\atufkas\\ProgressKeeper\\Presenter\\';
         $presenterInterface = $presenterNamespace . 'PresenterInterface';
@@ -90,7 +90,7 @@ class ProgressKeeperFactory
             $presenter = new $presenterClassName();
 
             return $presenter
-                ->setChangeLog(static::getChangeLog($source, $sourceType, $audiences))
+                ->setChangelog(static::getChangelog($source, $sourceType, $audiences))
                 ->getOutput();
 
         } catch (\Exception $e) {

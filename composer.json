@@ -1,6 +1,6 @@
 {
   "name": "atufkas/progress-keeper",
-  "description": "Track, transform and present change log entries.",
+  "description": "Track, transform and present changelog entries.",
   "type": "library",
   "license": "MIT",
   "authors": [

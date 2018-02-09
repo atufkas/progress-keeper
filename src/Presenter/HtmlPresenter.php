@@ -17,11 +17,11 @@ class HtmlPresenter extends AbstractPresenter implements PresenterInterface
     public function getOutput()
     {
         $ret = '<div class="pk">';
-        $ret .= '<h1 class="pk-name">' . $this->changeLog->getApplicationName() . '</h1>';
-        $ret .= '<span class="pk-desc">' . $this->changeLog->getApplicationDesc() . '</span>';
+        $ret .= '<h1 class="pk-name">' . $this->changelog->getApplicationName() . '</h1>';
+        $ret .= '<span class="pk-desc">' . $this->changelog->getApplicationDesc() . '</span>';
         $ret .= '<ul class="pk-versions">';
 
-        foreach ($this->changeLog->getReleases() as $release) {
+        foreach ($this->changelog->getReleases() as $release) {
             /* @var Release $release */
             $ret .= '<li class="pk-release">';
             $ret .= '<h2 class="pk-release-version">' . $release->getVersionString() . '</h2>';
