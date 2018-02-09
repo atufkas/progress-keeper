@@ -104,7 +104,7 @@ class Release
             return $this;
         }
 
-        $this->logEntries = array_filter($this->logEntries, function($logEntry) use ($audiences) {
+        $this->logEntries = array_filter($this->logEntries, function ($logEntry) use ($audiences) {
             /** @var LogEntry $logEntry */
             return $logEntry->getAudience() === '*' || in_array($logEntry->getAudience(), $audiences);
         });
@@ -121,7 +121,7 @@ class Release
     public function orderByType($order = null)
     {
         if ($order === false || $order === false) {
-           return $this;
+            return $this;
         }
 
         if ($order === true) {
@@ -131,7 +131,7 @@ class Release
         $orderedLogEntries = [];
 
         foreach ($order as $type) {
-            foreach($this->getLogEntries() as $logEntry) {
+            foreach ($this->getLogEntries() as $logEntry) {
                 /* @var LogEntry $logEntry */
                 if ($logEntry->getType() === $type) {
                     $orderedLogEntries[] = $logEntry;

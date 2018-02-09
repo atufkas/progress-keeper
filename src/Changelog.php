@@ -108,7 +108,7 @@ class Changelog
      */
     public function filterToAudiences($audiences = ['*'])
     {
-        $this->releases = array_filter($this->releases, function($release) use ($audiences) {
+        $this->releases = array_filter($this->releases, function ($release) use ($audiences) {
             /* @var Release $release */
             return $release->filterToAudiences($audiences);
         });

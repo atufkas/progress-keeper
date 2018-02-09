@@ -102,7 +102,7 @@ class LogEntryType
             'new feat',
             'new feature'
         ],
-        self::PGTYPE_UPD=> [
+        self::PGTYPE_UPD => [
             'upd',
             'update',
             'upd',
@@ -111,7 +111,7 @@ class LogEntryType
             'improvement',
             'enhancement'
         ],
-        self::PGTYPE_REM=> [
+        self::PGTYPE_REM => [
             'rem',
             'removed',
             'remove',
