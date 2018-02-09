@@ -51,6 +51,7 @@ class Release
 
     /**
      * @param array $releaseArr
+     * @return $this
      * @throws ReleaseException
      * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
      */
@@ -88,6 +89,8 @@ class Release
                     break;
             }
         }
+
+        return $this;
     }
 
     /**
@@ -106,6 +109,37 @@ class Release
             return $logEntry->getAudience() === '*' || in_array($logEntry->getAudience(), $audiences);
         });
 
+        return $this;
+    }
+
+    /**
+     * Order log entries of releases by type. Default order (true) means: Order as listed in
+     * LogEntryType::PGTYPE_ALIASES. An order value null or false means: Do nothing!
+     * @param null|boolean|array $order
+     * @return $this
+     */
+    public function orderByType($order = null)
+    {
+        if ($order === false || $order === false) {
+           return $this;
+        }
+
+        if ($order === true) {
+            $order = array_keys(LogEntryType::PGTYPE_ALIASES);
+        }
+
+        $orderedLogEntries = [];
+
+        foreach ($order as $type) {
+            foreach($this->getLogEntries() as $logEntry) {
+                /* @var LogEntry $logEntry */
+                if ($logEntry->getType() === $type) {
+                    $orderedLogEntries[] = $logEntry;
+                }
+            }
+        }
+
+        $this->logEntries = $orderedLogEntries;
         return $this;
     }
 

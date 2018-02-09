@@ -9,6 +9,12 @@
       "changelog": [
         {
           "date": "2018-02-09",
+          "type": "feat",
+          "desc": "Added methods to order (group) log entries by type, using default or a custom type order.",
+          "audience": "*"
+        },
+        {
+          "date": "2018-02-09",
           "type": "upd",
           "desc": "Added (most) log entry types found in \"keep-a-changelog\" and various log entry (commit) type aliases.",
           "audience": "*"
@@ -22,7 +28,7 @@
         {
           "date": "2018-02-09",
           "type": "feat",
-          "desc": "Added possibility to filter log entries to specific audience(s).",
+          "desc": "Added methods to filter log entries to specific audience(s).",
           "audience": "dev"
         },
         {

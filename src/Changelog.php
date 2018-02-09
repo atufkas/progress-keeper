@@ -41,6 +41,7 @@ class Changelog
 
     /**
      * @param array $changelogArr
+     * @return $this
      * @throws ChangelogException
      * @throws LogEntry\LogEntryException
      * @throws ReleaseException
@@ -75,6 +76,8 @@ class Changelog
                     break;
             }
         }
+
+        return $this;
     }
 
     /**
@@ -109,6 +112,26 @@ class Changelog
             /* @var Release $release */
             return $release->filterToAudiences($audiences);
         });
+
+        return $this;
+    }
+
+    /**
+     * Order log entries of releases by type. Default order (true) means: Order as listed in
+     * LogEntryType::PGTYPE_ALIASES. An order value null or false means: Do nothing!
+     * @param null|boolean|array $order
+     * @return $this
+     */
+    public function orderLogEntriesByType($order = null)
+    {
+        if ($order === false || $order === null) {
+            return $this;
+        }
+
+        foreach ($this->releases as $release) {
+            /* @var Release $release */
+            $release->orderByType($order);
+        }
 
         return $this;
     }
