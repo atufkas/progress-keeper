@@ -9,6 +9,12 @@
       "changelog": [
         {
           "date": "2018-02-09",
+          "type": "feat",
+          "desc": "Added possibility to filter log entries to specific audience(s).",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-09",
           "type": "test",
           "desc": "Renaming test classes after unintentionally adding fragment 'sample' to all test cases.",
           "audience": "dev"

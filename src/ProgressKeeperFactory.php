@@ -17,13 +17,18 @@ class ProgressKeeperFactory
      *
      * @param $source
      * @param $sourceType
+     * @param array|string $audiences
      * @return ChangeLog
      */
-    public static function getChangeLog($source, $sourceType)
+    public static function getChangeLog($source, $sourceType, $audiences = ['*'])
     {
         $readerNamespace = '\\atufkas\\ProgressKeeper\\Reader\\';
         $readerInterface = $readerNamespace . 'ReaderInterface';
         $readerClassName = $readerNamespace . ucfirst($sourceType) . 'Reader';
+
+        if (is_string($audiences)) {
+            $audiences = [$audiences];
+        }
 
         try {
             static::checkClass($readerClassName, $readerInterface);
@@ -40,7 +45,7 @@ class ProgressKeeperFactory
              */
             $reader = new $readerClassName();
             $reader->setDataSource($source);
-            return $reader->getChangeLog();
+            return $reader->getChangeLog()->filterToAudiences($audiences);
         } catch (\Exception $e) {
             echo "\n";
             echo 'Could not instantiate progress keeper: ' . $e->getMessage() . "\n";
@@ -56,13 +61,18 @@ class ProgressKeeperFactory
      * @param $source
      * @param $sourceType
      * @param $targetType
+     * @param array|string $audiences
      * @return mixed
      */
-    public static function getConvertedChangeLog($source, $sourceType, $targetType)
+    public static function getConvertedChangeLog($source, $sourceType, $targetType, $audiences = ['*'])
     {
         $presenterNamespace = '\\atufkas\\ProgressKeeper\\Presenter\\';
         $presenterInterface = $presenterNamespace . 'PresenterInterface';
         $presenterClassName = $presenterNamespace . ucfirst($targetType) . 'Presenter';
+
+        if (is_string($audiences)) {
+            $audiences = [$audiences];
+        }
 
         try {
             static::checkClass($presenterClassName, $presenterInterface);
@@ -80,7 +90,7 @@ class ProgressKeeperFactory
             $presenter = new $presenterClassName();
 
             return $presenter
-                ->setChangeLog(static::getChangeLog($source, $sourceType))
+                ->setChangeLog(static::getChangeLog($source, $sourceType, $audiences))
                 ->getOutput();
 
         } catch (\Exception $e) {

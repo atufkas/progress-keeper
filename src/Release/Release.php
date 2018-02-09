@@ -91,6 +91,25 @@ class Release
     }
 
     /**
+     * Filter log entries to those marked for given audience
+     * @param array $audiences
+     * @return $this
+     */
+    public function filterToAudiences($audiences = ['*'])
+    {
+        if (in_array('*', $audiences)) {
+            return $this;
+        }
+
+        $this->logEntries = array_filter($this->logEntries, function($logEntry) use ($audiences) {
+            /** @var LogEntry $logEntry */
+            return $logEntry->getAudience() === '*' || in_array($logEntry->getAudience(), $audiences);
+        });
+
+        return $this;
+    }
+
+    /**
      * @param LogEntry $logEntry
      */
     public function addLogEntry(LogEntry $logEntry)

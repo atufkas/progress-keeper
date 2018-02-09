@@ -14,7 +14,7 @@ class LogEntry
     protected $type;
 
     /**
-     * The log entry audience, e.g.: all|dev|user
+     * The log entry audience, e.g.: *|dev|user
      * @var $audience
      */
     protected $audience;
@@ -47,7 +47,7 @@ class LogEntry
      * @param null $desc
      * @throws LogEntryException
      */
-    public function __construct($type = 'feat', $audience = 'all', \DateTimeImmutable $date = null, $desc = null)
+    public function __construct($type = 'feat', $audience = '*', \DateTimeImmutable $date = null, $desc = null)
     {
         $this->type = $this->getCanonicalType($type);;
         $this->audience = $audience;

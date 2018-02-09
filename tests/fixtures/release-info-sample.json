@@ -11,13 +11,13 @@
           "date": "2018-01-26",
           "type": "feat",
           "desc": "Added a batch mode for editing multiple records at once.",
-          "audience": "all"
+          "audience": "*"
         },
         {
           "date": "2018-01-17",
           "type": "fix",
           "desc": "Validation failed when whitespace was transmitted via form value.",
-          "audience": "all"
+          "audience": "*"
         }
       ]
     },
@@ -28,21 +28,27 @@
       "changelog": [
         {
           "date": "2018-01-23",
-          "type": "feature",
+          "type": "feat",
           "desc": "Changes will now be tracked and displayed with ProgressKeeper using JSON files and HTML-Bootstrap rendering.",
-          "audience": "all"
+          "audience": "*"
         },
         {
           "date": "2018-01-23",
           "type": "feat",
           "desc": "Added server side validation for form fields.",
-          "audience": "all"
+          "audience": "*"
         },
         {
           "date": "2018-01-23",
           "type": "change",
           "desc": "Form field 'gender' is now rendered as radio button instead of select menu.",
-          "audience": "all"
+          "audience": "*"
+        },
+        {
+          "date": "2018-01-23",
+          "type": "feat",
+          "desc": "Modernized server side runtime environment, improving overall stability.",
+          "audience": "user"
         },
         {
           "date": "2018-01-23",
@@ -67,13 +73,13 @@
           "date": "2018-01-23",
           "type": "enhancement",
           "desc": "Form style is now more compact so that whole form is visible even on small screens.",
-          "audience": "all"
+          "audience": "*"
         },
         {
           "date": "2018-01-23",
           "type": "bugfix",
           "desc": "Form cannot be submitted if name field is left empty but creates no notification.",
-          "audience": "all"
+          "audience": "*"
         }
       ]
     },
@@ -86,13 +92,13 @@
           "date": "2018-01-23",
           "type": "feat",
           "desc": "Added basic CRUD functions.",
-          "audience": "all"
+          "audience": "*"
         },
         {
           "date": "2018-01-23",
           "type": "feat",
           "desc": "Added basic tooling and created skeleton.",
-          "audience": "all"
+          "audience": "*"
         }
       ]
     }

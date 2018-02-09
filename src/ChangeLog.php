@@ -32,7 +32,7 @@ class ChangeLog
      * @param string $applicationDesc
      * @param array $releases
      */
-    public function __construct($applicationName = null, $applicationDesc = null, array $releases = array())
+    public function __construct($applicationName = null, $applicationDesc = null, array $releases = [])
     {
         $this->applicationName = $applicationName;
         $this->applicationDesc = $applicationDesc;
@@ -95,6 +95,22 @@ class ChangeLog
         $release = new Release();
         $release->parseFromArray($releaseArr);
         $this->addRelease($release);
+    }
+
+    /**
+     * Filter log entries of all change log releases to those marked
+     * for given audience
+     * @param array $audiences
+     * @return $this
+     */
+    public function filterToAudiences($audiences = ['*'])
+    {
+        $this->releases = array_filter($this->releases, function($release) use ($audiences) {
+            /* @var Release $release */
+            return $release->filterToAudiences($audiences);
+        });
+
+        return $this;
     }
 
     /**
