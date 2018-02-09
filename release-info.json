@@ -4,9 +4,15 @@
   "releases": [
     {
       "version": "0.2.0",
-      "date": "2018-02-08",
+      "date": "2018-02-09",
       "remarks": "Work in progress...",
       "changelog": [
+        {
+          "date": "2018-02-08",
+          "type": "refac",
+          "desc": "BREAKING CHANGE: Removed class ProgressKeeper and refactored methods of ProgressKeeperInterface.",
+          "audience": "dev"
+        },
         {
           "date": "2018-02-08",
           "type": "update",

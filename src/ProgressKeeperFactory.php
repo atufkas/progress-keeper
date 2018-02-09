@@ -13,25 +13,20 @@ use atufkas\ProgressKeeper\Reader\ReaderInterface;
 class ProgressKeeperFactory
 {
     /**
-     * @param $sourceType
-     * @param $targetType
+     * Get change log object from given source and type.
+     *
      * @param $source
-     * @return mixed
+     * @param $sourceType
+     * @return ChangeLog
      */
-    public static function getChangeLog($sourceType, $targetType, $source)
+    public static function getChangeLog($source, $sourceType)
     {
         $readerNamespace = '\\atufkas\\ProgressKeeper\\Reader\\';
-        $presenterNamespace = '\\atufkas\\ProgressKeeper\\Presenter\\';
-
         $readerInterface = $readerNamespace . 'ReaderInterface';
-        $presenterInterface = $presenterNamespace . 'PresenterInterface';
-
         $readerClassName = $readerNamespace . ucfirst($sourceType) . 'Reader';
-        $presenterClassName = $presenterNamespace . ucfirst($targetType) . 'Presenter';
 
         try {
             static::checkClass($readerClassName, $readerInterface);
-            static::checkClass($presenterClassName, $presenterInterface);
         } catch (\Exception $e) {
             echo "\n";
             echo 'Implementation missing or incomplete: ' . $e->getMessage() . "\n";
@@ -45,14 +40,49 @@ class ProgressKeeperFactory
              */
             $reader = new $readerClassName();
             $reader->setDataSource($source);
+            return $reader->getChangeLog();
+        } catch (\Exception $e) {
+            echo "\n";
+            echo 'Could not instantiate progress keeper: ' . $e->getMessage() . "\n";
+            echo 'in ' . $e->getFile() . ':' . $e->getLine() . "\n";
+            exit;
+        }
+    }
 
+    /**
+     * Get transformed change log output from given source/type and converted
+     * to given target type.
+     *
+     * @param $source
+     * @param $sourceType
+     * @param $targetType
+     * @return mixed
+     */
+    public static function getConvertedChangeLog($source, $sourceType, $targetType)
+    {
+        $presenterNamespace = '\\atufkas\\ProgressKeeper\\Presenter\\';
+        $presenterInterface = $presenterNamespace . 'PresenterInterface';
+        $presenterClassName = $presenterNamespace . ucfirst($targetType) . 'Presenter';
+
+        try {
+            static::checkClass($presenterClassName, $presenterInterface);
+        } catch (\Exception $e) {
+            echo "\n";
+            echo 'Implementation missing or incomplete: ' . $e->getMessage() . "\n";
+            echo 'in ' . $e->getFile() . ':' . $e->getLine() . "\n";
+            exit;
+        }
+
+        try {
             /**
              * @var $presenter PresenterInterface
              */
             $presenter = new $presenterClassName();
 
-            $pk = new ProgressKeeper($reader, $presenter);
-            return $pk->getOutput();
+            return $presenter
+                ->setChangeLog(static::getChangeLog($source, $sourceType))
+                ->getOutput();
+
         } catch (\Exception $e) {
             echo "\n";
             echo 'Could not instantiate progress keeper: ' . $e->getMessage() . "\n";
