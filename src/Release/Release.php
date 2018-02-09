@@ -120,7 +120,7 @@ class Release
      */
     public function orderByType($order = null)
     {
-        if ($order === false || $order === false) {
+        if ($order === false || $order === null) {
             return $this;
         }
 
