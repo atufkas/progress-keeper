@@ -19,7 +19,7 @@ class HtmlPresenter extends AbstractPresenter implements PresenterInterface
         $ret = '<div class="pk">';
         $ret .= '<h1 class="pk-name">' . $this->changelog->getApplicationName() . '</h1>';
         $ret .= '<span class="pk-desc">' . $this->changelog->getApplicationDesc() . '</span>';
-        $ret .= '<ul class="pk-versions">';
+        $ret .= '<ul class="pk-releases">';
 
         foreach ($this->changelog->getReleases() as $release) {
             /* @var Release $release */
@@ -28,16 +28,16 @@ class HtmlPresenter extends AbstractPresenter implements PresenterInterface
             $ret .= '<span class="pk-release-date">[' . $release->getDate()->format('d.m.Y') . ']</span>';
             $ret .= '&nbsp;';
             $ret .= '<span class="pk-release-remarks">' . $release->getDesc() . '</span>';
-            $ret .= '<ul>';
+            $ret .= '<ul class="pk-logentries">';
 
             foreach ($release->getLogEntries() as $logEntry) {
                 /* @var LogEntry $logEntry */
-                $ret .= '<li class="pk-logentries">';
-                $ret .= '<span class="pk-logentries-type">[' . $logEntry->getType() . ' ]</span>';
+                $ret .= '<li class="pk-logentry">';
+                $ret .= '<span class="pk-logentry-type">[' . $logEntry->getType() . ' ]</span>';
                 $ret .= '&nbsp;';
-                $ret .= '<span class="pk-logentries-desc">' . $logEntry->getDesc() . '</span>';
+                $ret .= '<span class="pk-logentry-desc">' . $logEntry->getDesc() . '</span>';
                 $ret .= '&nbsp;';
-                $ret .= '<span class="pk-logentries-date">[ ' . $logEntry->getDate()->format('d.m.Y') . ' ]</span>';
+                $ret .= '<span class="pk-logentry-date">[ ' . $logEntry->getDate()->format('d.m.Y') . ' ]</span>';
                 $ret .= '</li>';
             }
 
