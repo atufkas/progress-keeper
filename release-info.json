@@ -4,9 +4,15 @@
   "releases": [
     {
       "version": "0.2.0",
-      "date": "2018-02-09",
+      "date": "2018-02-xx",
       "remarks": "Work in progress...",
       "changelog": [
+        {
+          "date": "2018-02-13",
+          "type": "update",
+          "desc": "BREAKING CHANGE: Minor corrections of class names for releases -> release -> logentries -> logentry.",
+          "audience": "*"
+        },
         {
           "date": "2018-02-09",
           "type": "feat",
