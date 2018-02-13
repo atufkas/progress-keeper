@@ -46,4 +46,20 @@ class ChangelogTest extends JsonSampleTestCase
         $this->assertEquals($jsonData['desc'], $changelog->getApplicationDesc());
         $this->assertNotEmpty($changelog->getReleases());
     }
+
+    /**
+     * @test
+     * @throws \atufkas\ProgressKeeper\ChangelogException
+     * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
+     * @throws \atufkas\ProgressKeeper\Release\ReleaseException
+     */
+    public function testGetLatestVersionString()
+    {
+        $jsonData = json_decode(file_get_contents(static::$jsonReleaseInfoSampleFile), true);
+
+        $changelog = new Changelog();
+        $changelog->parseFromArray($jsonData);
+
+        $this->assertEquals('1.0', $changelog->getLatestVersionString());
+    }
 }

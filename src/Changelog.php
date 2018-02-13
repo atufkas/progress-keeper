@@ -137,6 +137,20 @@ class Changelog
     }
 
     /**
+     * Get version string of latest (top most) release, i.e. get "current version".
+     * @return null|string
+     */
+    public function getLatestVersionString()
+    {
+        if (count($this->releases)) {
+            /** @var Release $latestRelease */
+            $latestRelease = $this->releases[0];
+            return $latestRelease->getVersionString();
+        }
+        return null;
+    }
+
+    /**
      * @return mixed
      */
     public function getApplicationName()

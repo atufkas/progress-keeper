@@ -9,6 +9,12 @@
       "changelog": [
         {
           "date": "2018-02-13",
+          "type": "feat",
+          "desc": "Added method to fetch version string of latest release (i.e. top most) of a changelog.",
+          "audience": "*"
+        },
+        {
+          "date": "2018-02-13",
           "type": "update",
           "desc": "BREAKING CHANGE: Minor corrections of class names for releases -> release -> logentries -> logentry.",
           "audience": "*"
