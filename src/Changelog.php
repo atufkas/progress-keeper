@@ -137,17 +137,25 @@ class Changelog
     }
 
     /**
+     * @return Release|null
+     */
+    public function getLatestRelease()
+    {
+        if (count($this->releases)) {
+            /** @var Release $latestRelease */
+            return $this->releases[0];
+        }
+        return null;
+    }
+
+    /**
      * Get version string of latest (top most) release, i.e. get "current version".
      * @return null|string
      */
     public function getLatestVersionString()
     {
-        if (count($this->releases)) {
-            /** @var Release $latestRelease */
-            $latestRelease = $this->releases[0];
-            return $latestRelease->getVersionString();
-        }
-        return null;
+        $latestRelease = $this->getLatestRelease();
+        return $latestRelease ? $latestRelease->getVersionString() : null;
     }
 
     /**

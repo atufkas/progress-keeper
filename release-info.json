@@ -8,6 +8,12 @@
       "remarks": "Work in progress...",
       "changelog": [
         {
+          "date": "2018-02-14",
+          "type": "feat",
+          "desc": "Added method to fetch latest release (i.e. top most) of a changelog.",
+          "audience": "*"
+        },
+        {
           "date": "2018-02-13",
           "type": "feat",
           "desc": "Added method to fetch version string of latest release (i.e. top most) of a changelog.",
