@@ -4,8 +4,8 @@
   "releases": [
     {
       "version": "0.2.0",
-      "date": "2018-02-xx",
-      "remarks": "Work in progress...",
+      "date": "2018-02-14",
+      "remarks": "New log entry type list + filter and sort methods + a lot of housekeeping.",
       "changelog": [
         {
           "date": "2018-02-14",
