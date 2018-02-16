@@ -38,9 +38,8 @@ class ChangelogTest extends JsonSampleTestCase
     public function testCreateChangelogFromArray()
     {
         // Get samples from "base format" fixture file
-        $jsonData = $this->getJsonDataFromSampleFile();
-        $changelog = new Changelog();
-        $changelog->parseFromArray($jsonData);
+        $jsonData = static::getJsonDataFromSampleFile();
+        $changelog = $this->getChangelogFromSampleFile();
 
         $this->assertEquals($jsonData['name'], $changelog->getApplicationName());
         $this->assertEquals($jsonData['desc'], $changelog->getApplicationDesc());
@@ -56,9 +55,7 @@ class ChangelogTest extends JsonSampleTestCase
     public function testGetLatestRelease()
     {
         // Get samples from "base format" fixture file
-        $jsonData = $this->getJsonDataFromSampleFile();
-        $changelog = new Changelog();
-        $changelog->parseFromArray($jsonData);
+        $changelog = $this->getChangelogFromSampleFile();
 
         $latestRelease = $changelog->getLatestRelease();
         $this->assertEquals('1.0', $latestRelease->getVersionString());
@@ -74,9 +71,7 @@ class ChangelogTest extends JsonSampleTestCase
     public function testGetLatestVersionString()
     {
         // Get samples from "base format" fixture file
-        $jsonData = $this->getJsonDataFromSampleFile();
-        $changelog = new Changelog();
-        $changelog->parseFromArray($jsonData);
+        $changelog = $this->getChangelogFromSampleFile();
 
         $this->assertEquals('1.0', $changelog->getLatestVersionString());
     }

@@ -6,7 +6,7 @@ namespace atufkas\ProgressKeeper\Tests;
 use atufkas\ProgressKeeper\Reader\JsonReader;
 
 /**
- * Class ProgressKeeperFactoryTest
+ * Class ReaderTest
  * @package atufkas\ProgressKeeper\Tests
  */
 class ReaderTest extends JsonSampleTestCase

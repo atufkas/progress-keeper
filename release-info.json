@@ -8,7 +8,13 @@
       "remarks": "Work in progress...",
       "changelog": [
         {
-          "date": "2018-02-13",
+          "date": "2018-02-16",
+          "type": "test",
+          "desc": "Added test class for testing presenters + extracted sample changelog generation to JsonSampleTextCase super class.",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-16",
           "type": "update",
           "desc": "BREAKING CHANGE: Changed output for HTML presenter: New tag structure and prettified formatting.",
           "audience": "*"

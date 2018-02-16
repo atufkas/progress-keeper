@@ -120,7 +120,7 @@ class ProgressKeeperFactoryTest extends JsonSampleTestCase
      * @throws \Exception
      * @throws \ReflectionException
      */
-    public function testGetChangelogJson2Html()
+    public function testGetConvertedChangelogJson2Html()
     {
         $htmlChangelog = ProgressKeeperFactory::getConvertedChangelog(
             static::$jsonReleaseInfoSampleFile, 'json', 'html');

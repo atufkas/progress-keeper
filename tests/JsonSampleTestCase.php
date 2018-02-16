@@ -2,6 +2,7 @@
 
 namespace atufkas\ProgressKeeper\Tests;
 
+use atufkas\ProgressKeeper\Changelog;
 use PHPUnit\Framework\TestCase;
 
 
@@ -12,12 +13,29 @@ use PHPUnit\Framework\TestCase;
 abstract class JsonSampleTestCase extends TestCase
 {
     static $jsonReleaseInfoSampleFile = __DIR__ . '/fixtures/release-info-sample.json';
+    static $jsonData = null;
 
     /**
      * @return mixed
      */
-    protected function getJsonDataFromSampleFile()
+    protected static function getJsonDataFromSampleFile()
     {
-        return json_decode(file_get_contents(static::$jsonReleaseInfoSampleFile), true);
+        if (static::$jsonData === null) {
+            static::$jsonData = json_decode(file_get_contents(static::$jsonReleaseInfoSampleFile), true);
+        }
+
+        return static::$jsonData;
+    }
+
+    /**
+     * @return Changelog
+     * @throws \atufkas\ProgressKeeper\ChangelogException
+     * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
+     * @throws \atufkas\ProgressKeeper\Release\ReleaseException
+     */
+    protected function getChangelogFromSampleFile()
+    {
+        $changelog = new Changelog();
+        return $changelog->parseFromArray(static::getJsonDataFromSampleFile());
     }
 }
