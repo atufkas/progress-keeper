@@ -7,6 +7,7 @@ Date: 16.02.2018
 
 Work in progress...
 
+- [doc] Updated README by adding a paragraph about the internal JSON format plus some basic model and API concepts.
 - [feat] Added simple command which calls factory method 'getConvertedChangelog' with CLI arguments.
 - [feat] Added new presenter: Markdown. Allows for generating simple markdown from given changelog.
 - [upd] BREAKING CHANGE: Changed output for HTML presenter: New tag structure and prettified formatting.

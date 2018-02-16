@@ -9,6 +9,12 @@
       "changelog": [
         {
           "date": "2018-02-16",
+          "type": "doc",
+          "desc": "Updated README by adding a paragraph about the internal JSON format plus some basic model and API concepts.",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-16",
           "type": "chore",
           "desc": "Added composer 'pre-commit' script which builds markdown and HTML versions of the own PK changelog.",
           "audience": "dev"
