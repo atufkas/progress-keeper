@@ -9,6 +9,12 @@
       "changelog": [
         {
           "date": "2018-02-16",
+          "type": "feat",
+          "desc": "Added new presenter: Markdown. Allows for generating simple markdown from given changelog.",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-16",
           "type": "test",
           "desc": "Added test class for testing presenters + extracted sample changelog generation to JsonSampleTextCase super class.",
           "audience": "dev"
