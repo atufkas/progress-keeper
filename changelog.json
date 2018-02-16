@@ -9,6 +9,12 @@
       "changelog": [
         {
           "date": "2018-02-16",
+          "type": "chore",
+          "desc": "Renamed 'release-info.json' files to 'changelog.json'.",
+          "audience": "*"
+        },
+        {
+          "date": "2018-02-16",
           "type": "feat",
           "desc": "Added new presenter: Markdown. Allows for generating simple markdown from given changelog.",
           "audience": "dev"
