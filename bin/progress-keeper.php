@@ -1,0 +1,11 @@
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+try {
+    $out = \atufkas\ProgressKeeper\ProgressKeeperFactory::getConvertedChangelog($argv[1], $argv[2], $argv[3], ['*'], true);
+} catch (Exception $e) {
+    fwrite(STDERR, $e);
+}
+
+echo $out;

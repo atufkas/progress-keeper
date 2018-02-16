@@ -125,6 +125,6 @@ class ProgressKeeperFactoryTest extends JsonSampleTestCase
         $htmlChangelog = ProgressKeeperFactory::getConvertedChangelog(
             static::$jsonReleaseInfoSampleFile, 'json', 'html');
         $this->assertStringStartsWith('<div class="pk">', $htmlChangelog);
-        $this->assertStringEndsWith('</div>', $htmlChangelog);
+        $this->assertStringEndsWith("</div>\n", $htmlChangelog);
     }
 }

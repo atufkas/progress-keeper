@@ -16,39 +16,45 @@ class HtmlPresenter extends AbstractPresenter implements PresenterInterface
      */
     public function getOutput()
     {
-        $ret = '<div class="pk">';
-        $ret .= '<h1 class="pk-name">' . $this->changelog->getApplicationName() . '</h1>';
-        $ret .= '<span class="pk-desc">' . $this->changelog->getApplicationDesc() . '</span>';
-        $ret .= '<ul class="pk-releases">';
+        $ret  = $this->gi(0) . '<div class="pk">' . "\n";
+        $ret .= $this->gi(1) . '<h1 class="pk-name">' . $this->changelog->getApplicationName() . '</h1>' . "\n";
+        $ret .= $this->gi(1) . '<span class="pk-desc">' . $this->changelog->getApplicationDesc() . '</span>' . "\n";
+        $ret .= $this->gi(1) . '<div class="pk-releases">' . "\n";
 
         foreach ($this->changelog->getReleases() as $release) {
             /* @var Release $release */
-            $ret .= '<li class="pk-release">';
-            $ret .= '<h2 class="pk-release-version">' . $release->getVersionString() . '</h2>';
-            $ret .= '<span class="pk-release-date">[' . $release->getDate()->format('d.m.Y') . ']</span>';
-            $ret .= '&nbsp;';
-            $ret .= '<span class="pk-release-remarks">' . $release->getDesc() . '</span>';
-            $ret .= '<ul class="pk-logentries">';
+            $ret .= $this->gi(2) . '<div class="pk-release">' . "\n";
+            $ret .= $this->gi(3) . '<h2 class="pk-release-version">' . $release->getVersionString() . '</h2>' . "\n";
+            $ret .= $this->gi(3) . '<p class="pk-release-date">Date: ' . $release->getDate()->format('d.m.Y') . '</p>' . "\n";
+            $ret .= $this->gi(3) . '<p class="pk-release-remarks">' . $release->getDesc() . '</p>' . "\n";
+            $ret .= $this->gi(3) . '<ul class="pk-logentries">' . "\n";
 
             foreach ($release->getLogEntries() as $logEntry) {
                 /* @var LogEntry $logEntry */
-                $ret .= '<li class="pk-logentry">';
-                $ret .= '<span class="pk-logentry-type">[' . $logEntry->getType() . ' ]</span>';
-                $ret .= '&nbsp;';
-                $ret .= '<span class="pk-logentry-desc">' . $logEntry->getDesc() . '</span>';
-                $ret .= '&nbsp;';
-                $ret .= '<span class="pk-logentry-date">[ ' . $logEntry->getDate()->format('d.m.Y') . ' ]</span>';
-                $ret .= '</li>';
+                $ret .= $this->gi(4) . '<li class="pk-logentry">' . "\n";
+                $ret .= $this->gi(5) . '<span class="pk-logentry-type">[' . $logEntry->getType() . ']</span>' . "\n";
+                $ret .= $this->gi(5) . '<span class="pk-logentry-desc">' . $logEntry->getDesc() . '</span>' . "\n";
+                $ret .= $this->gi(4) . '</li>' . "\n";
             }
 
-            $ret .= '</ul>';
-            $ret .= '</li>';
+            $ret .= $this->gi(3) . '</ul>' . "\n";
+            $ret .= $this->gi(2) . '</div>' . "\n";
         }
 
-        $ret .= '</ul>';
-        $ret .= '</div>';
+        $ret .= $this->gi(1) . '</div>' . "\n";
+        $ret .= $this->gi(0) . '</div>' . "\n";
 
         return $ret;
+    }
+
+    /**
+     * Get spaces for next indention level by adding given $step to current indention level
+     * @param $step
+     * @return string
+     */
+    public function gi($depth = 0)
+    {
+        return str_repeat('    ', $depth);
     }
 
     /**

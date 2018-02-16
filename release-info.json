@@ -3,6 +3,19 @@
   "desc": "Track, transform and present changelog entries.",
   "releases": [
     {
+      "version": "0.3.0",
+      "date": "2018-02-16",
+      "remarks": "Work in progress...",
+      "changelog": [
+        {
+          "date": "2018-02-13",
+          "type": "update",
+          "desc": "BREAKING CHANGE: Changed output for HTML presenter: New tag structure and prettified formatting.",
+          "audience": "*"
+        }
+      ]
+    },
+    {
       "version": "0.2.0",
       "date": "2018-02-14",
       "remarks": "New log entry type list + filter and sort methods + a lot of housekeeping.",
