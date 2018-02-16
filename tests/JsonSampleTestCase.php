@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
  */
 abstract class JsonSampleTestCase extends TestCase
 {
-    static $jsonReleaseInfoSampleFile = __DIR__ . '/fixtures/changelog-sample.json';
+    static $jsonReleaseInfoSampleFile = __DIR__ . '/fixtures/pk-changelog-sample.json';
     static $jsonData = null;
 
     /**

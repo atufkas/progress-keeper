@@ -27,6 +27,13 @@
     "test": [
       "./vendor/bin/phpunit -c ./"
     ],
+    "gen-changelog": [
+      "./bin/progress-keeper ./pk-changelog.json json markdown > ./CHANGELOG.md",
+      "echo '<html>\n<body>' > ./CHANGELOG.html; ./bin/progress-keeper ./pk-changelog.json json html >> ./CHANGELOG.html; echo '</body>\n</html>' >> ./CHANGELOG.html"
+    ],
+    "pre-commit": [
+      "@gen-changelog"
+    ],
     "post-update-cmd": [
       "./vendor/bin/phpunit -c ./"
     ]
