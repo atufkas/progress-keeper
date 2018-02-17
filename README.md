@@ -26,7 +26,7 @@ The project is under active development. New features and conecpts are
 introduced frequently. Currently this library provides:
 
 - a definition for an "intermediate JSON changelog format" looking like this:
-    ```
+    ``` json
     {
       "name": "PK Sample-App",
       "desc": "The app with forms that make you happy!",

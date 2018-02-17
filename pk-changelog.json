@@ -4,17 +4,23 @@
   "releases": [
     {
       "version": "0.3.0",
-      "date": "2018-02-16",
+      "date": "2018-02-17",
       "remarks": "Work in progress...",
       "changelog": [
         {
-          "date": "2018-02-16",
+          "date": "2018-02-17",
           "type": "doc",
-          "desc": "Updated README by adding a paragraph about the internal JSON format plus some basic model and API concepts.",
-          "audience": "dev"
+          "desc": "Added syntax highlighting for JSON changelog example.",
+          "audience": "*"
         },
         {
-          "date": "2018-02-16",
+          "date": "2018-02-17",
+          "type": "doc",
+          "desc": "Updated README by adding a paragraph about the internal JSON format plus some basic model and API concepts.",
+          "audience": "*"
+        },
+        {
+          "date": "2018-02-17",
           "type": "chore",
           "desc": "Added composer 'pre-commit' script which builds markdown and HTML versions of the own PK changelog.",
           "audience": "dev"
@@ -23,7 +29,7 @@
           "date": "2018-02-16",
           "type": "feat",
           "desc": "Added simple command which calls factory method 'getConvertedChangelog' with CLI arguments.",
-          "audience": "dev"
+          "audience": "*"
         },
         {
           "date": "2018-02-16",
@@ -35,7 +41,7 @@
           "date": "2018-02-16",
           "type": "feat",
           "desc": "Added new presenter: Markdown. Allows for generating simple markdown from given changelog.",
-          "audience": "dev"
+          "audience": "*"
         },
         {
           "date": "2018-02-16",

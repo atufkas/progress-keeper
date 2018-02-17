@@ -3,10 +3,11 @@ Track, transform and present changelog entries.
 
 ## 0.3.0
 
-Date: 16.02.2018
+Date: 17.02.2018
 
 Work in progress...
 
+- [doc] Added syntax highlighting for JSON changelog example.
 - [doc] Updated README by adding a paragraph about the internal JSON format plus some basic model and API concepts.
 - [feat] Added simple command which calls factory method 'getConvertedChangelog' with CLI arguments.
 - [feat] Added new presenter: Markdown. Allows for generating simple markdown from given changelog.
