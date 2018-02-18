@@ -49,7 +49,7 @@ class LogEntry
      */
     public function __construct($type = 'feat', $audience = '*', \DateTimeImmutable $date = null, $desc = null)
     {
-        $this->type = LogEntryType::getCanonicalType($type);
+        $this->type = LogEntryType::getCanonicalIdentifier($type);
         $this->audience = $audience;
 
         if (!$date) {
@@ -78,7 +78,7 @@ class LogEntry
 
             switch ($key) {
                 case 'type':
-                    $this->setType(LogEntryType::getCanonicalType(strtolower($value)));
+                    $this->setType(LogEntryType::getCanonicalIdentifier(strtolower($value)));
                     break;
 
                 case 'date':

@@ -180,7 +180,7 @@ class LogEntryType
      * @return mixed
      * @throws LogEntryException
      */
-    public static function getCanonicalType($type)
+    public static function getCanonicalIdentifier($type)
     {
         if (array_key_exists($type, static::PGTYPE_ALIASES)) {
             return $type;
