@@ -8,6 +8,12 @@
       "remarks": "Work in progress...",
       "changelog": [
         {
+          "date": "2018-02-18",
+          "type": "refac",
+          "desc": "Extracted method getCanonicalType() and moved it to class LogEntryType.",
+          "audience": "dev"
+        },
+        {
           "date": "2018-02-17",
           "type": "doc",
           "desc": "Added syntax highlighting for JSON changelog example.",

@@ -49,7 +49,7 @@ class LogEntry
      */
     public function __construct($type = 'feat', $audience = '*', \DateTimeImmutable $date = null, $desc = null)
     {
-        $this->type = $this->getCanonicalType($type);;
+        $this->type = LogEntryType::getCanonicalType($type);
         $this->audience = $audience;
 
         if (!$date) {
@@ -78,7 +78,7 @@ class LogEntry
 
             switch ($key) {
                 case 'type':
-                    $this->setType($this->getCanonicalType(strtolower($value)));
+                    $this->setType(LogEntryType::getCanonicalType(strtolower($value)));
                     break;
 
                 case 'date':
@@ -104,26 +104,6 @@ class LogEntry
                     break;
             }
         }
-    }
-
-    /**
-     * @param $type
-     * @return mixed
-     * @throws LogEntryException
-     */
-    public function getCanonicalType($type)
-    {
-        if (array_key_exists($type, LogEntryType::PGTYPE_ALIASES)) {
-            return $type;
-        }
-
-        foreach (LogEntryType::PGTYPE_ALIASES as $key => $aliases) {
-            if (in_array($type, $aliases)) {
-                return $key;
-            }
-        }
-
-        throw new LogEntryException(sprintf('Type "%s" unknown and not found in alias list.', $type));
     }
 
     /**

@@ -12,6 +12,7 @@ Work in progress...
 - [feat] Added simple command which calls factory method 'getConvertedChangelog' with CLI arguments.
 - [feat] Added new presenter: Markdown. Allows for generating simple markdown from given changelog.
 - [upd] BREAKING CHANGE: Changed output for HTML presenter: New tag structure and prettified formatting.
+- [refac] Extracted method getCanonicalType() and moved it to class LogEntryType.
 - [test] Added test class for testing presenters + extracted sample changelog generation to JsonSampleTextCase super class.
 - [chore] Added composer 'pre-commit' script which builds markdown and HTML versions of the own PK changelog.
 - [chore] Renamed 'release-info.json' files to 'pk-changelog.json'.

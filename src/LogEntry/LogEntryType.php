@@ -174,4 +174,24 @@ class LogEntryType
             'code/internal'
         ],
     ];
+
+    /**
+     * @param $type
+     * @return mixed
+     * @throws LogEntryException
+     */
+    public static function getCanonicalType($type)
+    {
+        if (array_key_exists($type, static::PGTYPE_ALIASES)) {
+            return $type;
+        }
+
+        foreach (static::PGTYPE_ALIASES as $key => $aliases) {
+            if (in_array($type, $aliases)) {
+                return $key;
+            }
+        }
+
+        throw new LogEntryException(sprintf('Type "%s" unknown and not found in alias list.', $type));
+    }
 }
