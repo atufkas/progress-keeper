@@ -7,6 +7,7 @@ Date: 17.02.2018
 
 Work in progress...
 
+- [upd] BREAKING CHANGE: CSS class for release notes/remarks/description element changed fron "pk-release-remarks" to "pk-release-desc".
 - [doc] Added syntax highlighting for JSON changelog example.
 - [doc] Updated README by adding a paragraph about the internal JSON format plus some basic model and API concepts.
 - [feat] Added simple command which calls factory method 'getConvertedChangelog' with CLI arguments.

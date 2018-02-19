@@ -26,7 +26,7 @@ class HtmlPresenter extends AbstractPresenter implements PresenterInterface
             $ret .= $this->gi(2) . '<div class="pk-release">' . "\n";
             $ret .= $this->gi(3) . '<h2 class="pk-release-version">' . $release->getVersionString() . '</h2>' . "\n";
             $ret .= $this->gi(3) . '<p class="pk-release-date">Date: ' . $release->getDate()->format('d.m.Y') . '</p>' . "\n";
-            $ret .= $this->gi(3) . '<p class="pk-release-remarks">' . $release->getDesc() . '</p>' . "\n";
+            $ret .= $this->gi(3) . '<p class="pk-release-desc">' . $release->getDesc() . '</p>' . "\n";
             $ret .= $this->gi(3) . '<ul class="pk-logentries">' . "\n";
 
             foreach ($release->getLogEntries() as $logEntry) {
