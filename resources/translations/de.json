@@ -1,0 +1,18 @@
+{
+  "logentry": {
+    "type": {
+      "doc": "Dokumentation",
+      "feat": "Neu",
+      "upd": "Aktualisiert",
+      "rem": "Entfernt",
+      "fix": "Behoben",
+      "perf": "Performance",
+      "secur": "Sicherheit",
+      "refac": "Refaktoriert",
+      "revert": "Rückgängig gemacht",
+      "style": "Code-Stil",
+      "test": "Tests",
+      "chore": "Aufgeräumt"
+    }
+  }
+}
