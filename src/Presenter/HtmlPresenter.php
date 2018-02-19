@@ -49,7 +49,7 @@ class HtmlPresenter extends AbstractPresenter implements PresenterInterface
 
     /**
      * Get spaces for next indention level by adding given $step to current indention level
-     * @param $step
+     * @param $depth
      * @return string
      */
     public function gi($depth = 0)

@@ -35,7 +35,7 @@ abstract class AbstractPresenter implements PresenterInterface
     protected $changelog;
 
     /**k
-     * @param array $releases
+     * @param Changelog $changelog
      * @return $this|PresenterInterface
      */
     public function setChangelog(Changelog $changelog)
