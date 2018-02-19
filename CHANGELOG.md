@@ -7,7 +7,6 @@ Date: 17.02.2018
 
 Work in progress...
 
-- [upd] BREAKING CHANGE: CSS class for release notes/remarks/description element changed fron "pk-release-remarks" to "pk-release-desc".
 - [doc] Added syntax highlighting for JSON changelog example.
 - [doc] Updated README by adding a paragraph about the internal JSON format plus some basic model and API concepts.
 - [feat] Added simple command which calls factory method 'getConvertedChangelog' with CLI arguments.
@@ -15,6 +14,7 @@ Work in progress...
 - [upd] BREAKING CHANGE: Changed output for HTML presenter: New tag structure and prettified formatting.
 - [refac] Extracted method getCanonicalType() and moved it to class LogEntryType.
 - [test] Added test class for testing presenters + extracted sample changelog generation to JsonSampleTextCase super class.
+- [chore] Added integration with Travis CI.
 - [chore] Added composer 'pre-commit' script which builds markdown and HTML versions of the own PK changelog.
 - [chore] Renamed 'release-info.json' files to 'pk-changelog.json'.
 

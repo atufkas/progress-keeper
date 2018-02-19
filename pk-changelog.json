@@ -9,6 +9,12 @@
       "changelog": [
         {
           "date": "2018-02-18",
+          "type": "chore",
+          "desc": "Added integration with Travis CI.",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-18",
           "type": "refac",
           "desc": "Extracted method getCanonicalType() and moved it to class LogEntryType.",
           "audience": "dev"
