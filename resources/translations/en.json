@@ -7,7 +7,7 @@
       "rem": "Removed",
       "fix": "Fixed",
       "perf": "Performance",
-      "secur": "Performance",
+      "secur": "Security",
       "refac": "Refactored",
       "revert": "Reverted",
       "style": "Code Style",
