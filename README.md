@@ -1,5 +1,6 @@
 # progress-keeper
 
+[![Build Status](https://travis-ci.org/atufkas/progress-keeper.svg?branch=master)](https://travis-ci.org/atufkas/progress-keeper)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 Track, transform and present changelog entries.
