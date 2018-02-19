@@ -5,7 +5,7 @@
 
 Track, transform and present changelog entries.
 
-+++ **Importanat Note**: Project is currently in the state of an early stage
++++ **Important Note**: Project is currently in the state of an early stage
 concept under active development.  API may change frequently. Feel free
 to ask, comment and contribute! +++
 

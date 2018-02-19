@@ -4,23 +4,17 @@
   "releases": [
     {
       "version": "0.3.0",
-      "date": "2018-02-17",
+      "date": "2018-02-20",
       "remarks": "Work in progress...",
       "changelog": [
         {
-          "date": "2018-02-18",
-          "type": "chore",
-          "desc": "Changed PHP version dependency from >=5.6.0 to ^5.6 || ^7.0.",
-          "audience": "dev"
-        },
-        {
-          "date": "2018-02-18",
+          "date": "2018-02-19",
           "type": "doc",
           "desc": "Added Travis CI badge.",
           "audience": "dev"
         },
         {
-          "date": "2018-02-18",
+          "date": "2018-02-19",
           "type": "chore",
           "desc": "Added integration with Travis CI.",
           "audience": "dev"
