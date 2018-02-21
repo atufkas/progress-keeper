@@ -9,6 +9,12 @@
       "changelog": [
         {
           "date": "2018-02-21",
+          "type": "chore",
+          "desc": "Locked composer deps to PHP 5.6 compatible versions.",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-21",
           "type": "refac",
           "desc": "Extracted AbstractReader providing basic member and access methods.",
           "audience": "dev"

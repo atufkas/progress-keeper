@@ -16,6 +16,7 @@ Work in progress...
 - [refac] Extracted AbstractReader providing basic member and access methods.
 - [refac] Extracted method getCanonicalType() and moved it to class LogEntryType.
 - [test] Added test class for testing presenters + extracted sample changelog generation to JsonSampleTextCase super class.
+- [chore] Locked composer deps to PHP 5.6 compatible versions.
 - [chore] Added integration with Travis CI.
 - [chore] Added composer 'pre-commit' script which builds markdown and HTML versions of the own PK changelog.
 - [chore] Renamed 'release-info.json' files to 'pk-changelog.json'.
