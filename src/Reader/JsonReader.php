@@ -8,7 +8,7 @@ use atufkas\ProgressKeeper\Changelog;
  * Class JsonReader
  * @package atufkas\ProgressKeeper\Reader
  */
-class JsonReader implements ReaderInterface
+class JsonReader extends AbstractReader implements ReaderInterface
 {
     protected $rawVersionLog;
     protected $dataSource;
@@ -68,33 +68,5 @@ class JsonReader implements ReaderInterface
         }
 
         return json_decode($jsonData, true);
-    }
-
-    /**
-     * @param $rawVersionlog
-     * @return $this
-     */
-    public function setRawVersionLog($rawVersionlog)
-    {
-        $this->rawVersionLog = $rawVersionlog;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDataSource()
-    {
-        return $this->dataSource;
-    }
-
-    /**
-     * @param $dataSource
-     * @return $this
-     */
-    public function setDataSource($dataSource)
-    {
-        $this->dataSource = $dataSource;
-        return $this;
     }
 }
