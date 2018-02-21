@@ -4,8 +4,8 @@
   "releases": [
     {
       "version": "0.3.0",
-      "date": "2018-02-20",
-      "remarks": "Work in progress...",
+      "date": "2018-02-21",
+      "remarks": "Simple markdown presenter, new progress-keeper command, Travis CI integration and more.",
       "changelog": [
         {
           "date": "2018-02-21",

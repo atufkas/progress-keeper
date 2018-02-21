@@ -3,9 +3,9 @@ Track, transform and present changelog entries.
 
 ## 0.3.0
 
-Date: 20.02.2018
+Date: 21.02.2018
 
-Work in progress...
+Simple markdown presenter, new progress-keeper command, Travis CI integration and more.
 
 - [doc] Added Travis CI badge.
 - [doc] Added syntax highlighting for JSON changelog example.
