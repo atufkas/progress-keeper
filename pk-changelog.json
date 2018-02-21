@@ -8,6 +8,12 @@
       "remarks": "Work in progress...",
       "changelog": [
         {
+          "date": "2018-02-21",
+          "type": "refac",
+          "desc": "Extracted AbstractReader providing basic member and access methods.",
+          "audience": "dev"
+        },
+        {
           "date": "2018-02-19",
           "type": "doc",
           "desc": "Added Travis CI badge.",
