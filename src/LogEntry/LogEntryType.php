@@ -105,7 +105,6 @@ class LogEntryType
         self::PGTYPE_UPD => [
             'upd',
             'update',
-            'upd',
             'change',
             'changed',
             'improvement',
