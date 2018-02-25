@@ -81,6 +81,10 @@ class LogEntryType
      * Changes to the build process or auxiliary tools and libraries such as documentation generation
      */
     const PGTYPE_CHORE = 'chore';
+    /**
+     * Changes that don't fit in any of the above categories
+     */
+    const PGTYPE_MISC = 'misc';
 
     /**
      * Aliases
@@ -107,6 +111,7 @@ class LogEntryType
             'update',
             'change',
             'changed',
+            'addition',
             'improvement',
             'enhancement'
         ],
@@ -172,6 +177,10 @@ class LogEntryType
             'internal',
             'code/internal'
         ],
+        self::PGTYPE_MISC => [
+            'misc',
+            'miscellaneous'
+        ],
     ];
 
     /**
@@ -192,5 +201,18 @@ class LogEntryType
         }
 
         throw new LogEntryException(sprintf('Type "%s" unknown and not found in alias list.', $type));
+    }
+
+    /**
+     * @return array
+     */
+    public static function getUniqueTypeAliases()
+    {
+        $typeAliases = array_unique(array_merge(...array_values(static::PGTYPE_ALIASES)));
+        $typeAliases = array_map(function ($typeAlias) {
+            return str_replace("/", "\\/", $typeAlias);
+        }, $typeAliases);
+
+        return $typeAliases;
     }
 }

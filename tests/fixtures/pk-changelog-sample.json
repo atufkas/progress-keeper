@@ -9,13 +9,14 @@
       "changelog": [
         {
           "date": "2018-01-26",
-          "type": "feat",
+          "type": "new(ui)",
           "desc": "Added a batch mode for editing multiple records at once.",
           "audience": "*"
         },
         {
           "date": "2018-01-17",
           "type": "fix",
+          "scope": "ui",
           "desc": "Validation failed when whitespace was transmitted via form value.",
           "audience": "*"
         }
@@ -52,7 +53,7 @@
         },
         {
           "date": "2018-01-23",
-          "type": "code",
+          "type": "chore",
           "desc": "Set platform dependency to PHP >= 5.6.0.",
           "audience": "dev"
         },

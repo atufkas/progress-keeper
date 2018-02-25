@@ -46,7 +46,7 @@ class Changelog
      * @throws LogEntry\LogEntryException
      * @throws ReleaseException
      */
-    public function parseFromArray(array $changelogArr)
+    public function createFromArray(array $changelogArr)
     {
         $mandatoryKeys = ['name', 'desc', 'releases'];
 
@@ -96,7 +96,7 @@ class Changelog
     public function addReleaseFromArray(array $releaseArr)
     {
         $release = new Release();
-        $release->parseFromArray($releaseArr);
+        $release->createFromArray($releaseArr);
         $this->addRelease($release);
     }
 

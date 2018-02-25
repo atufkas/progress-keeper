@@ -4,9 +4,27 @@
   "releases": [
     {
       "version": "0.3.0",
-      "date": "2018-02-20",
+      "date": "2018-02-25",
       "remarks": "Work in progress...",
       "changelog": [
+        {
+          "date": "2018-02-25",
+          "type": "refac",
+          "desc": "BREAKING CHANGE: Renamed methods for parsing changelog, releases and log entries from from array to readFromArray().",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-25",
+          "type": "refac",
+          "desc": "BREAKING CHANGE: Changed signature of LogEntryType constructor now parsing first argument as 'conventional commit message'.",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-25",
+          "type": "feat",
+          "desc": "Extended LogEntryType by introducing field 'scope' and adding methods parsing type, scope and description from conventional commit messages and types.",
+          "audience": "dev"
+        },
         {
           "date": "2018-02-21",
           "type": "refac",

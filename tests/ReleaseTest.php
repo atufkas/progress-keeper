@@ -41,7 +41,7 @@ class ReleaseTest extends JsonSampleTestCase
 
         foreach ($jsonData['releases'] as $releaseArr) {
             $release = new Release();
-            $release->parseFromArray($releaseArr);
+            $release->createFromArray($releaseArr);
 
             $dateTime = \DateTimeImmutable::createFromFormat('Y-m-d', substr($releaseArr['date'], 0, 10));
 

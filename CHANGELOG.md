@@ -3,16 +3,19 @@ Track, transform and present changelog entries.
 
 ## 0.3.0
 
-Date: 20.02.2018
+Date: 25.02.2018
 
 Work in progress...
 
 - [doc] Added Travis CI badge.
 - [doc] Added syntax highlighting for JSON changelog example.
 - [doc] Updated README by adding a paragraph about the internal JSON format plus some basic model and API concepts.
+- [feat] Extended LogEntryType by introducing field 'scope' and adding methods parsing type, scope and description from conventional commit messages and types.
 - [feat] Added simple command which calls factory method 'getConvertedChangelog' with CLI arguments.
 - [feat] Added new presenter: Markdown. Allows for generating simple markdown from given changelog.
 - [upd] BREAKING CHANGE: Changed output for HTML presenter: New tag structure and prettified formatting.
+- [refac] BREAKING CHANGE: Renamed methods for parsing changelog, releases and log entries from from array to readFromArray().
+- [refac] BREAKING CHANGE: Changed signature of LogEntryType constructor now parsing first argument as 'conventional commit message'.
 - [refac] Extracted AbstractReader providing basic member and access methods.
 - [refac] Extracted method getCanonicalType() and moved it to class LogEntryType.
 - [test] Added test class for testing presenters + extracted sample changelog generation to JsonSampleTextCase super class.

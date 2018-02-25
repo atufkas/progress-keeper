@@ -36,6 +36,6 @@ abstract class JsonSampleTestCase extends TestCase
     protected function getChangelogFromSampleFile()
     {
         $changelog = new Changelog();
-        return $changelog->parseFromArray(static::getJsonDataFromSampleFile());
+        return $changelog->createFromArray(static::getJsonDataFromSampleFile());
     }
 }

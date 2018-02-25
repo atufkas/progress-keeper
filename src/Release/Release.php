@@ -55,7 +55,7 @@ class Release
      * @throws ReleaseException
      * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
      */
-    public function parseFromArray(array $releaseArr)
+    public function createFromArray(array $releaseArr)
     {
         $mandatoryKeys = ['date', 'version'];
 
@@ -158,7 +158,7 @@ class Release
     public function addLogEntryFromArray(array $logEntryArr)
     {
         $logEntry = new LogEntry();
-        $logEntry->parseFromArray($logEntryArr);
+        $logEntry->createFromArray($logEntryArr);
         $this->addLogEntry($logEntry);
     }
 

@@ -16,19 +16,45 @@ class LogEntryTest extends JsonSampleTestCase
      * @test
      * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
      */
-    public function testCreateLogEntry()
+    public function testCreateEmptyLogEntry()
     {
-        $logEntry1 = new LogEntry();
-        $this->assertNull($logEntry1->getDesc());
-        $this->assertNotNull($logEntry1->getDate());
+        $logEntry = new LogEntry();
 
+        $this->assertEquals('misc', $logEntry->getType());
+        $this->assertEquals('progress', $logEntry->getDesc());
+        $this->assertNotNull($logEntry->getDate());
+        $this->assertInstanceOf(\DateTimeImmutable::class, $logEntry->getDate());
+    }
+
+    /**
+     * @test
+     * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
+     */
+    public function testCreateSimpleLogEntry()
+    {
+        $message = 'Added some more glitter.';
         $dateTime = \DateTimeImmutable::createFromFormat('Y-m-d', '2018-01-04');
-        $message = 'Added some glitter!';
-        $logEntry2 = new LogEntry('feat', 'dev', $dateTime, $message);
+        $logEntry = new LogEntry($message, 'dev', $dateTime);
 
-        $this->assertArrayHasKey($logEntry2->getType(), LogEntryType::PGTYPE_ALIASES);
-        $this->assertEquals($message, $logEntry2->getDesc());
-        $this->assertEquals($dateTime, $logEntry2->getDate());
+        $this->assertEquals('misc', $logEntry->getType());
+        $this->assertEquals($message, $logEntry->getDesc());
+        $this->assertEquals($dateTime, $logEntry->getDate());
+    }
+
+    /**
+     * @test
+     * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
+     */
+    public function testCreateLogEntryFromCcMessage()
+    {
+        $dateTime = \DateTimeImmutable::createFromFormat('Y-m-d', '2018-02-14');
+        $ccMessage = 'change(ui): Added even more glitter.';
+        $logEntry = new LogEntry($ccMessage, 'dev', $dateTime);
+
+        $this->assertEquals('upd', $logEntry->getType());
+        $this->assertEquals('ui', $logEntry->getScope());
+        $this->assertEquals('Added even more glitter.', $logEntry->getDesc());
+        $this->assertEquals($dateTime, $logEntry->getDate());
     }
 
     /**
@@ -43,8 +69,15 @@ class LogEntryTest extends JsonSampleTestCase
         foreach ($jsonData['releases'] as $releaseArr) {
             foreach ($releaseArr['changelog'] as $changelogArr) {
                 $logEntry = new LogEntry();
-                $logEntry->parseFromArray($changelogArr);
-                $this->assertArrayHasKey($logEntry->getType(), LogEntryType::PGTYPE_ALIASES);
+                $logEntry->createFromArray($changelogArr);
+                $this->assertEquals($changelogArr['desc'], $logEntry->getDesc());
+
+                $ccTypeElements = LogEntry::parseElementsFromCcType($changelogArr['type']);
+                $this->assertEquals(LogEntryType::getCanonicalIdentifier($ccTypeElements['type']), $logEntry->getType());
+
+                if (isset($changelogArr['scope'])) {
+                    $this->assertEquals($changelogArr['scope'], $logEntry->getScope());
+                }
             }
         }
     }

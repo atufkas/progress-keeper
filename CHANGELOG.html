@@ -6,7 +6,7 @@
     <div class="pk-releases">
         <div class="pk-release">
             <h2 class="pk-release-version">0.3.0</h2>
-            <p class="pk-release-date">Date: 20.02.2018</p>
+            <p class="pk-release-date">Date: 25.02.2018</p>
             <p class="pk-release-desc">Work in progress...</p>
             <ul class="pk-logentries">
                 <li class="pk-logentry">
@@ -23,6 +23,10 @@
                 </li>
                 <li class="pk-logentry">
                     <span class="pk-logentry-type">[feat]</span>
+                    <span class="pk-logentry-desc">Extended LogEntryType by introducing field 'scope' and adding methods parsing type, scope and description from conventional commit messages and types.</span>
+                </li>
+                <li class="pk-logentry">
+                    <span class="pk-logentry-type">[feat]</span>
                     <span class="pk-logentry-desc">Added simple command which calls factory method 'getConvertedChangelog' with CLI arguments.</span>
                 </li>
                 <li class="pk-logentry">
@@ -32,6 +36,14 @@
                 <li class="pk-logentry">
                     <span class="pk-logentry-type">[upd]</span>
                     <span class="pk-logentry-desc">BREAKING CHANGE: Changed output for HTML presenter: New tag structure and prettified formatting.</span>
+                </li>
+                <li class="pk-logentry">
+                    <span class="pk-logentry-type">[refac]</span>
+                    <span class="pk-logentry-desc">BREAKING CHANGE: Renamed methods for parsing changelog, releases and log entries from from array to readFromArray().</span>
+                </li>
+                <li class="pk-logentry">
+                    <span class="pk-logentry-type">[refac]</span>
+                    <span class="pk-logentry-desc">BREAKING CHANGE: Changed signature of LogEntryType constructor now parsing first argument as 'conventional commit message'.</span>
                 </li>
                 <li class="pk-logentry">
                     <span class="pk-logentry-type">[refac]</span>
