@@ -7,6 +7,7 @@ Date: 26.02.2018
 
 Small service release providing some improvements in detail.
 
+- doc: Improved introduction, corrected some details about current API, added hints for contributors.
 - upd: BREAKING CHANGE: HTML presenter now renders the log entry scope value (if present) as prefix of the description.
 - upd: HTML presenter now adds a css class 'pk-logentry-type-[type]' class to log entry inline element.
 - chore(ci): Added additional Travis CI test runner for PHP 7.2.
