@@ -9,6 +9,7 @@ Small service release providing some improvements in detail.
 
 - upd: BREAKING CHANGE: HTML presenter now renders the log entry scope value (if present) as prefix of the description.
 - upd: HTML presenter now adds a css class 'pk-logentry-type-[type]' class to log entry inline element.
+- chore(ci): Added additional Travis CI test runner for PHP 7.2.
 
 ## 0.3.0
 
@@ -31,7 +32,7 @@ Simple markdown presenter, new progress-keeper command, Travis CI integration an
 - refac: Extracted method getCanonicalType() and moved it to class LogEntryType.
 - test: Added test class for testing presenters + extracted sample changelog generation to JsonSampleTextCase super class.
 - chore: Locked composer deps to PHP 5.6 compatible versions.
-- chore: Added integration with Travis CI.
+- chore(ci): Added integration with Travis CI.
 - chore: Added composer 'pre-commit' script which builds markdown and HTML versions of the own PK changelog.
 - chore: Renamed 'release-info.json' files to 'pk-changelog.json'.
 

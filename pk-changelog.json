@@ -9,6 +9,12 @@
       "changelog": [
         {
           "date": "2018-02-26",
+          "type": "chore(ci)",
+          "desc": "Added additional Travis CI test runner for PHP 7.2.",
+          "audience": "*"
+        },
+        {
+          "date": "2018-02-26",
           "type": "upd",
           "desc": "BREAKING CHANGE: HTML presenter now renders the log entry scope value (if present) as prefix of the description.",
           "audience": "*"
@@ -76,7 +82,7 @@
         },
         {
           "date": "2018-02-19",
-          "type": "chore",
+          "type": "chore(ci)",
           "desc": "Added integration with Travis CI.",
           "audience": "dev"
         },
