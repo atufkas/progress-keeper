@@ -10,6 +10,12 @@
         {
           "date": "2018-02-26",
           "type": "upd",
+          "desc": "BREAKING CHANGE: HTML presenter now renders the log entry scope value (if present) as prefix of the description.",
+          "audience": "*"
+        },
+        {
+          "date": "2018-02-26",
+          "type": "upd",
           "desc": "HTML presenter now adds a css class 'pk-logentry-type-[type]' class to log entry inline element.",
           "audience": "*"
         }
