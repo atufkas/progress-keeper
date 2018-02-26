@@ -5,79 +5,90 @@
     <span class="pk-desc">Track, transform and present changelog entries.</span>
     <div class="pk-releases">
         <div class="pk-release">
+            <h2 class="pk-release-version">0.3.1</h2>
+            <p class="pk-release-date">Date: 26.02.2018</p>
+            <p class="pk-release-desc">Small service release providing some improvements in detail.</p>
+            <ul class="pk-logentries">
+                <li class="pk-logentry pk-logentry-type-upd">
+                    <span class="pk-logentry-type">upd</span>
+                    <span class="pk-logentry-desc">HTML presenter now adds a css class 'pk-logentry-type-[type]' class to log entry inline element.</span>
+                </li>
+            </ul>
+        </div>
+        <div class="pk-release">
             <h2 class="pk-release-version">0.3.0</h2>
             <p class="pk-release-date">Date: 26.02.2018</p>
             <p class="pk-release-desc">Simple markdown presenter, new progress-keeper command, Travis CI integration and more.</p>
             <ul class="pk-logentries">
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-doc">
                     <span class="pk-logentry-type">doc</span>
                     <span class="pk-logentry-desc">Added Travis CI badge.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-doc">
                     <span class="pk-logentry-type">doc</span>
                     <span class="pk-logentry-desc">Added syntax highlighting for JSON changelog example.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-doc">
                     <span class="pk-logentry-type">doc</span>
                     <span class="pk-logentry-desc">Updated README by adding a paragraph about the internal JSON format plus some basic model and API concepts.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Added new reader type: Markdown. Parses a markdown changelog from AST which is structured like the one the markdown presenter generates.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Extended LogEntryType by introducing field 'scope' and adding methods parsing type, scope and description from conventional commit messages and types.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Added simple command which calls factory method 'getConvertedChangelog' with CLI arguments.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Added new presenter: Markdown. Allows for generating simple markdown from given changelog.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-upd">
                     <span class="pk-logentry-type">upd</span>
                     <span class="pk-logentry-desc">BREAKING CHANGE: Markdown presenter now renders types in the form 'type:' instead of '[type]'.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-upd">
                     <span class="pk-logentry-type">upd</span>
                     <span class="pk-logentry-desc">BREAKING CHANGE: Changed output for HTML presenter: New tag structure and prettified formatting.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-refac">
                     <span class="pk-logentry-type">refac</span>
                     <span class="pk-logentry-desc">BREAKING CHANGE: Renamed methods for parsing changelog, releases and log entries from from array to readFromArray().</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-refac">
                     <span class="pk-logentry-type">refac</span>
                     <span class="pk-logentry-desc">BREAKING CHANGE: Changed signature of LogEntryType constructor now parsing first argument as 'conventional commit message'.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-refac">
                     <span class="pk-logentry-type">refac</span>
                     <span class="pk-logentry-desc">Extracted AbstractReader providing basic member and access methods.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-refac">
                     <span class="pk-logentry-type">refac</span>
                     <span class="pk-logentry-desc">Extracted method getCanonicalType() and moved it to class LogEntryType.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-test">
                     <span class="pk-logentry-type">test</span>
                     <span class="pk-logentry-desc">Added test class for testing presenters + extracted sample changelog generation to JsonSampleTextCase super class.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-chore">
                     <span class="pk-logentry-type">chore</span>
                     <span class="pk-logentry-desc">Locked composer deps to PHP 5.6 compatible versions.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-chore">
                     <span class="pk-logentry-type">chore</span>
                     <span class="pk-logentry-desc">Added integration with Travis CI.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-chore">
                     <span class="pk-logentry-type">chore</span>
                     <span class="pk-logentry-desc">Added composer 'pre-commit' script which builds markdown and HTML versions of the own PK changelog.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-chore">
                     <span class="pk-logentry-type">chore</span>
                     <span class="pk-logentry-desc">Renamed 'release-info.json' files to 'pk-changelog.json'.</span>
                 </li>
@@ -88,43 +99,43 @@
             <p class="pk-release-date">Date: 14.02.2018</p>
             <p class="pk-release-desc">New log entry type list + filter and sort methods + a lot of housekeeping.</p>
             <ul class="pk-logentries">
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Added method to fetch latest release (i.e. top most) of a changelog.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Added method to fetch version string of latest release (i.e. top most) of a changelog.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Added methods to order (group) log entries by type, using default or a custom type order.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Added methods to filter log entries to specific audience(s).</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-upd">
                     <span class="pk-logentry-type">upd</span>
                     <span class="pk-logentry-desc">BREAKING CHANGE: Minor corrections of class names for releases -> release -> logentries -> logentry.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-upd">
                     <span class="pk-logentry-type">upd</span>
                     <span class="pk-logentry-desc">Added (most) log entry types found in "keep-a-changelog" and various log entry (commit) type aliases.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-upd">
                     <span class="pk-logentry-type">upd</span>
                     <span class="pk-logentry-desc">BREAKING CHANGE: Field identifier (key) 'adnc' is replaced by 'audi' as an alias for 'audience'.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-refac">
                     <span class="pk-logentry-type">refac</span>
                     <span class="pk-logentry-desc">BREAKING CHANGE: Removed class ProgressKeeper and refactored methods of ProgressKeeperInterface.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-test">
                     <span class="pk-logentry-type">test</span>
                     <span class="pk-logentry-desc">Renaming test classes after unintentionally adding fragment 'sample' to all test cases.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-chore">
                     <span class="pk-logentry-type">chore</span>
                     <span class="pk-logentry-desc">Consistently renamed changeLog (camelCase) to changelog (lowercase).</span>
                 </li>
@@ -135,35 +146,35 @@
             <p class="pk-release-date">Date: 08.02.2018</p>
             <p class="pk-release-desc">Initial release: Provides a basic factory class methods allowing a json -> html transformation.</p>
             <ul class="pk-logentries">
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-doc">
                     <span class="pk-logentry-type">doc</span>
                     <span class="pk-logentry-desc">Clarified main goals of this project + some cosmetic changes.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-doc">
                     <span class="pk-logentry-type">doc</span>
                     <span class="pk-logentry-desc">Committing this project to the follow the principles of conventional-changelog and keep-a-changelog.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Added methods for adding releases to changelogs. Object model hierarchy is now: changelog -> releases -> log entries</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Added methods for adding log entries to releases.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Added classes representing log entries and releases.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-feat">
                     <span class="pk-logentry-type">feat</span>
                     <span class="pk-logentry-desc">Very first sketch using a Reader/Presenter interface concept and a ProgressKeeperFactory.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-fix">
                     <span class="pk-logentry-type">fix</span>
                     <span class="pk-logentry-desc">Only mandatory log entry fields would be correctly set by parse-from-array method.</span>
                 </li>
-                <li class="pk-logentry">
+                <li class="pk-logentry pk-logentry-type-chore">
                     <span class="pk-logentry-type">chore</span>
                     <span class="pk-logentry-desc">Release 0.1.0</span>
                 </li>

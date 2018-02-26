@@ -1,6 +1,14 @@
 # Progress-Keeper
 Track, transform and present changelog entries.
 
+## 0.3.1
+
+Date: 26.02.2018
+
+Small service release providing some improvements in detail.
+
+- upd: HTML presenter now adds a css class 'pk-logentry-type-[type]' class to log entry inline element.
+
 ## 0.3.0
 
 Date: 26.02.2018
