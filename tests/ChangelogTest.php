@@ -9,7 +9,7 @@ use atufkas\ProgressKeeper\Changelog;
  * Class ChangelogTest
  * @package atufkas\ProgressKeeper\Tests
  */
-class ChangelogTest extends JsonSampleTestCase
+class ChangelogTest extends ChangelogTestCase
 {
     /**
      * @test
@@ -44,6 +44,22 @@ class ChangelogTest extends JsonSampleTestCase
         $this->assertEquals($jsonData['name'], $changelog->getApplicationName());
         $this->assertEquals($jsonData['desc'], $changelog->getApplicationDesc());
         $this->assertNotEmpty($changelog->getReleases());
+    }
+
+    /**
+     * @test
+     * @throws \atufkas\ProgressKeeper\ChangelogException
+     * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
+     * @throws \atufkas\ProgressKeeper\Release\ReleaseException
+     */
+    public function testGetRelease()
+    {
+        // Get samples from "base format" fixture file
+        $changelog = $this->getChangelogFromSampleFile();
+
+        $release = $changelog->getRelease('0.1.0');
+        $this->assertEquals('0.1.0', $release->getVersionString());
+        $this->assertEquals('Initial release.', $release->getDesc());
     }
 
     /**

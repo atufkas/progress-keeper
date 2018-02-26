@@ -8,6 +8,18 @@
       "remarks": "Work in progress...",
       "changelog": [
         {
+          "date": "2018-02-26",
+          "type": "feat",
+          "desc": "Added new reader type: Markdown. Parses a markdown changelog from AST which is structured like the one the markdown presenter generates.",
+          "audience": "*"
+        },
+        {
+          "date": "2018-02-25",
+          "type": "upd",
+          "desc": "BREAKING CHANGE: Markdown presenter now renders types in the form 'type:' instead of '[type]'.",
+          "audience": "*"
+        },
+        {
           "date": "2018-02-25",
           "type": "refac",
           "desc": "BREAKING CHANGE: Renamed methods for parsing changelog, releases and log entries from from array to readFromArray().",

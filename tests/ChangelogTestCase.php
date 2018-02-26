@@ -7,12 +7,12 @@ use PHPUnit\Framework\TestCase;
 
 
 /**
- * Class JsonSampleTestCase
+ * Class ChangelogTestCase
  * @package atufkas\ProgressKeeper\Tests
  */
-abstract class JsonSampleTestCase extends TestCase
+abstract class ChangelogTestCase extends TestCase
 {
-    static $jsonReleaseInfoSampleFile = __DIR__ . '/fixtures/pk-changelog-sample.json';
+    static $jsonChangelogSampleFile = __DIR__ . '/fixtures/pk-changelog-sample.json';
     static $jsonData = null;
 
     /**
@@ -21,7 +21,7 @@ abstract class JsonSampleTestCase extends TestCase
     protected static function getJsonDataFromSampleFile()
     {
         if (static::$jsonData === null) {
-            static::$jsonData = json_decode(file_get_contents(static::$jsonReleaseInfoSampleFile), true);
+            static::$jsonData = json_decode(file_get_contents(static::$jsonChangelogSampleFile), true);
         }
 
         return static::$jsonData;

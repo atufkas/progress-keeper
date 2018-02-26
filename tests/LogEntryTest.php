@@ -10,7 +10,7 @@ use atufkas\ProgressKeeper\LogEntry\LogEntryType;
  * Class LogEntryTest
  * @package atufkas\ProgressKeeper\Tests
  */
-class LogEntryTest extends JsonSampleTestCase
+class LogEntryTest extends ChangelogTestCase
 {
     /**
      * @test
@@ -20,8 +20,8 @@ class LogEntryTest extends JsonSampleTestCase
     {
         $logEntry = new LogEntry();
 
-        $this->assertEquals('misc', $logEntry->getType());
-        $this->assertEquals('progress', $logEntry->getDesc());
+        $this->assertEquals(null, $logEntry->getType());
+        $this->assertEquals(null, $logEntry->getDesc());
         $this->assertNotNull($logEntry->getDate());
         $this->assertInstanceOf(\DateTimeImmutable::class, $logEntry->getDate());
     }
@@ -36,7 +36,7 @@ class LogEntryTest extends JsonSampleTestCase
         $dateTime = \DateTimeImmutable::createFromFormat('Y-m-d', '2018-01-04');
         $logEntry = new LogEntry($message, 'dev', $dateTime);
 
-        $this->assertEquals('misc', $logEntry->getType());
+        $this->assertEquals(null, $logEntry->getType());
         $this->assertEquals($message, $logEntry->getDesc());
         $this->assertEquals($dateTime, $logEntry->getDate());
     }
@@ -64,7 +64,7 @@ class LogEntryTest extends JsonSampleTestCase
     public function testCreateLogEntryFromArray()
     {
         // Get samples from "base format" fixture file
-        $jsonData = json_decode(file_get_contents(static::$jsonReleaseInfoSampleFile), true);
+        $jsonData = json_decode(file_get_contents(static::$jsonChangelogSampleFile), true);
 
         foreach ($jsonData['releases'] as $releaseArr) {
             foreach ($releaseArr['changelog'] as $changelogArr) {

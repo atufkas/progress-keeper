@@ -9,7 +9,7 @@ use atufkas\ProgressKeeper\Release\Release;
  * Class ReleaseTest
  * @package atufkas\ProgressKeeper\Tests
  */
-class ReleaseTest extends JsonSampleTestCase
+class ReleaseTest extends ChangelogTestCase
 {
     /**
      * @test
@@ -37,7 +37,7 @@ class ReleaseTest extends JsonSampleTestCase
     public function testCreateReleaseFromArray()
     {
         // Get samples from "base format" fixture file
-        $jsonData = json_decode(file_get_contents(static::$jsonReleaseInfoSampleFile), true);
+        $jsonData = json_decode(file_get_contents(static::$jsonChangelogSampleFile), true);
 
         foreach ($jsonData['releases'] as $releaseArr) {
             $release = new Release();

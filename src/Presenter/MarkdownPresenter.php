@@ -31,7 +31,8 @@ class MarkdownPresenter extends AbstractPresenter implements PresenterInterface
             foreach ($release->getLogEntries() as $logEntry) {
                 /* @var LogEntry $logEntry */
                 $ret .= '- ';
-                $ret .= '[' . $logEntry->getType() . '] ';
+                $ret .= $logEntry->getCcType();
+                $ret .= ': ';
                 $ret .= $logEntry->getDesc();
                 $ret .= "\n";
             }

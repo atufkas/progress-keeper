@@ -51,7 +51,7 @@ class LogEntry
      * @param \DateTimeImmutable|null $date
      * @throws LogEntryException
      */
-    public function __construct($ccMessage = 'misc: progress', $audience = '*', \DateTimeImmutable $date = null)
+    public function __construct($ccMessage = null, $audience = '*', \DateTimeImmutable $date = null)
     {
         $ccMessageElements = static::parseElementsFromCcMessage($ccMessage);
 
@@ -141,16 +141,16 @@ class LogEntry
     public static function parseElementsFromCcMessage($message, $canonical = true)
     {
         $res = [
-            'type' => 'misc',
+            'type' => null,
             'scope' => null,
             'desc' => $message
         ];
 
         $ccTypePatterns = implode('|', LogEntryType::getUniqueTypeAliases());
 
-        $regex = '/^(\[?\b(' . $ccTypePatterns . ')\b[\s]?(\((\b.*\b)\))?\]?\:[\s]?)(.*)$/si';
+        $regex = '/^(\[?\b(' . $ccTypePatterns . ')\b\s?(\((\b.*\b)\))?\]?)\:[\s]?(.*)$/si';
 
-        if (preg_match($regex, $message, $matches)) {
+        if (preg_match($regex, trim($message), $matches)) {
             $res = [
                 'type' => $canonical ? LogEntryType::getCanonicalIdentifier($matches[2]) : $matches[2],
                 'scope' => $matches[4],
@@ -179,9 +179,9 @@ class LogEntry
     {
         $ccTypePatterns = implode('|', LogEntryType::getUniqueTypeAliases());
 
-        $regex = '/^(\b' . $ccTypePatterns . '\b)[\s]?\((\b.*\b)\)$/si';
+        $regex = '/^(\b' . $ccTypePatterns . '\b)\s?\((\b.*\b)\)$/si';
 
-        if (preg_match($regex, strtolower($type), $matches)) {
+        if (preg_match($regex, strtolower(trim($type)), $matches)) {
             $res = [
                 'type' => $canonical ? LogEntryType::getCanonicalIdentifier($matches[1]) : $matches[1],
                 'scope' => $matches[2]
@@ -205,6 +205,22 @@ class LogEntry
     }
 
     /**
+     * @return mixed
+     */
+    public function getCcType()
+    {
+        return $this->type . ($this->scope ? '(' . $this->scope . ')' : '');
+    }
+
+    /**
+     * @param $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
      * Set type and scope by parsing "conventional commit" style type
      * @param $ccType
      * @throws LogEntryException
@@ -214,14 +230,6 @@ class LogEntry
         $ccTypeElements = static::parseElementsFromCcType($ccType);
         $this->setType($ccTypeElements['type']);
         $this->setScope($ccTypeElements['scope']);
-    }
-
-    /**
-     * @param $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
     }
 
     /**

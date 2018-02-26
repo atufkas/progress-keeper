@@ -137,6 +137,22 @@ class Changelog
     }
 
     /**
+     * Get specific release by version string
+     * @return Release|null
+     */
+    public function getRelease($versionString)
+    {
+        foreach ($this->getReleases() as $release) {
+            /* @var Release $release */
+            if ($release->getVersionString() === $versionString) {
+                return $release;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * @return Release|null
      */
     public function getLatestRelease()

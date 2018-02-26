@@ -10,7 +10,7 @@ use atufkas\ProgressKeeper\Presenter\MarkdownPresenter;
  * Class PresenterTest
  * @package atufkas\ProgressKeeper\Tests
  */
-class PresenterTest extends JsonSampleTestCase
+class PresenterTest extends ChangelogTestCase
 {
     /**
      * @test
@@ -42,8 +42,9 @@ class PresenterTest extends JsonSampleTestCase
 
         $this->assertStringStartsWith('# PK Sample-App', $markdownChangelog);
         $this->assertContains("## 0.1.0", $markdownChangelog);
-        $this->assertContains("- [feat]", $markdownChangelog);
-        $this->assertContains("- [fix]", $markdownChangelog);
-        $this->assertContains("- [upd]", $markdownChangelog);
+        $this->assertContains("- feat:", $markdownChangelog);
+        $this->assertContains("- fix:", $markdownChangelog);
+        $this->assertContains("- fix(ui):", $markdownChangelog);
+        $this->assertContains("- upd:", $markdownChangelog);
     }
 }

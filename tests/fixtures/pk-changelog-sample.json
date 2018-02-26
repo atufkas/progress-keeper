@@ -41,7 +41,7 @@
         },
         {
           "date": "2018-01-23",
-          "type": "change",
+          "type": "change(ui)",
           "desc": "Form field 'gender' is now rendered as radio button instead of select menu.",
           "audience": "*"
         },
