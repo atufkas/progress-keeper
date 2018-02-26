@@ -32,7 +32,7 @@ class HtmlPresenter extends AbstractPresenter implements PresenterInterface
             foreach ($release->getLogEntries() as $logEntry) {
                 /* @var LogEntry $logEntry */
                 $ret .= $this->gi(4) . '<li class="pk-logentry">' . "\n";
-                $ret .= $this->gi(5) . '<span class="pk-logentry-type">[' . $logEntry->getType() . ']</span>' . "\n";
+                $ret .= $this->gi(5) . '<span class="pk-logentry-type">' . $logEntry->getCcType() . '</span>' . "\n";
                 $ret .= $this->gi(5) . '<span class="pk-logentry-desc">' . $logEntry->getDesc() . '</span>' . "\n";
                 $ret .= $this->gi(4) . '</li>' . "\n";
             }

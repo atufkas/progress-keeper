@@ -12,7 +12,7 @@ use atufkas\ProgressKeeper\Release\Release;
  * Class ProgressKeeperFactoryTest
  * @package atufkas\ProgressKeeper\Tests
  */
-class ProgressKeeperFactoryTest extends JsonSampleTestCase
+class ProgressKeeperFactoryTest extends ChangelogTestCase
 {
     /**
      * @test
@@ -21,7 +21,7 @@ class ProgressKeeperFactoryTest extends JsonSampleTestCase
      */
     public function testGetChangelog()
     {
-        $changelog = ProgressKeeperFactory::getChangelog(static::$jsonReleaseInfoSampleFile, 'json');
+        $changelog = ProgressKeeperFactory::getChangelog(static::$jsonChangelogSampleFile, 'json');
         $this->assertInstanceOf(Changelog::class, $changelog);
         $this->assertObjectHasAttribute('applicationName', $changelog);
         $this->assertObjectHasAttribute('applicationDesc', $changelog);
@@ -36,7 +36,7 @@ class ProgressKeeperFactoryTest extends JsonSampleTestCase
     public function testGetFilteredChangelog()
     {
         $changelog = ProgressKeeperFactory::getChangelog(
-            static::$jsonReleaseInfoSampleFile, 'json', '*');
+            static::$jsonChangelogSampleFile, 'json', '*');
         $releases = $changelog->getReleases();
         /* @var Release $release */
         $release = $releases[1];
@@ -44,7 +44,7 @@ class ProgressKeeperFactoryTest extends JsonSampleTestCase
         $this->assertCount(6, $release->getLogEntries());
 
         $changelog = ProgressKeeperFactory::getChangelog(
-            static::$jsonReleaseInfoSampleFile, 'json', 'dev');
+            static::$jsonChangelogSampleFile, 'json', 'dev');
         $releases = $changelog->getReleases();
         /* @var Release $release */
         $release = $releases[1];
@@ -52,7 +52,7 @@ class ProgressKeeperFactoryTest extends JsonSampleTestCase
         $this->assertCount(5, $release->getLogEntries());
 
         $changelog = ProgressKeeperFactory::getChangelog(
-            static::$jsonReleaseInfoSampleFile, 'json', 'user');
+            static::$jsonChangelogSampleFile, 'json', 'user');
         $releases = $changelog->getReleases();
         /* @var Release $release */
         $release = $releases[1];
@@ -69,7 +69,7 @@ class ProgressKeeperFactoryTest extends JsonSampleTestCase
     {
         // RUN 1: Unordered
         $changelog = ProgressKeeperFactory::getChangelog(
-            static::$jsonReleaseInfoSampleFile, 'json', '*', false);
+            static::$jsonChangelogSampleFile, 'json', '*', false);
         $releases = $changelog->getReleases();
         /* @var Release $release */
         $release = $releases[1];
@@ -84,7 +84,7 @@ class ProgressKeeperFactoryTest extends JsonSampleTestCase
 
         // RUN 1: Default order
         $changelog = ProgressKeeperFactory::getChangelog(
-            static::$jsonReleaseInfoSampleFile, 'json', '*', true);
+            static::$jsonChangelogSampleFile, 'json', '*', true);
         $releases = $changelog->getReleases();
         /* @var Release $release */
         $release = $releases[1];
@@ -101,7 +101,7 @@ class ProgressKeeperFactoryTest extends JsonSampleTestCase
         // RUN 1: Custom order
         $customOrder = ['upd', 'feat', 'chore'];
         $changelog = ProgressKeeperFactory::getChangelog(
-            static::$jsonReleaseInfoSampleFile, 'json', '*', $customOrder);
+            static::$jsonChangelogSampleFile, 'json', '*', $customOrder);
         $releases = $changelog->getReleases();
         /* @var Release $release */
         $release = $releases[1];
@@ -123,7 +123,7 @@ class ProgressKeeperFactoryTest extends JsonSampleTestCase
     public function testGetConvertedChangelogJson2Html()
     {
         $htmlChangelog = ProgressKeeperFactory::getConvertedChangelog(
-            static::$jsonReleaseInfoSampleFile, 'json', 'html');
+            static::$jsonChangelogSampleFile, 'json', 'html');
         $this->assertStringStartsWith('<div class="pk">', $htmlChangelog);
         $this->assertStringEndsWith("</div>\n", $htmlChangelog);
     }

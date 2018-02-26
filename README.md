@@ -5,16 +5,16 @@
 
 Track, transform and present changelog entries.
 
-+++ **Important Note**: Project is currently in the state of an early stage
++++ **Note**: Project is currently in the state of an early stage
 concept under active development.  API may change frequently. Feel free
-to ask, comment and contribute! +++
+to ask, comment and contribute, I'd be happy to receive help and support! +++
 
 
-## What's this? (the short story)
+## Introduction
 
 This project aims to address the problem of generating **user as well as
-developer friendly changelog catalogues supporting various formats,
-generated from various sources**. One major goal is to **aggregate change
+developer friendly changelog catalogues** supporting various formats,
+generated from various sources. One major goal is to **aggregate change
 log information based on relevance for specific audience**. The
 implementation and specification of formats follows
 some best practices, recommendations and proposals like the
@@ -23,8 +23,8 @@ some best practices, recommendations and proposals like the
 
 ## Concepts + API
 
-The project is under active development. New features and conecpts are
-introduced frequently. Currently this library provides:
+The project is under active development. New features, concepts and
+breaking changes are introduced frequently. Currently this library provides:
 
 - a definition for an "intermediate JSON changelog format" looking like this:
     ``` json
@@ -45,7 +45,7 @@ introduced frequently. Currently this library provides:
             },
             {
               "date": "2018-01-17",
-              "type": "fix",
+              "type": "fix(ui)",
               "desc": "Validation failed when whitespace was transmitted via form value.",
               "audience": "*"
             }
@@ -77,6 +77,7 @@ introduced frequently. Currently this library provides:
 
 - a **source format reader interface** with implementations for:
     - JSON: `atufkas\ProgressKeeper\Reader\JsonReader`
+    - Markdown: `atufkas\ProgressKeeper\Reader\MarkdownReader`
 
 - a **target format presenter interface** with implementations for:
      - HTML: `atufkas\ProgressKeeper\Presenter\HtmlPresenter`

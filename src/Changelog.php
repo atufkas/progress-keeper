@@ -46,7 +46,7 @@ class Changelog
      * @throws LogEntry\LogEntryException
      * @throws ReleaseException
      */
-    public function parseFromArray(array $changelogArr)
+    public function createFromArray(array $changelogArr)
     {
         $mandatoryKeys = ['name', 'desc', 'releases'];
 
@@ -96,7 +96,7 @@ class Changelog
     public function addReleaseFromArray(array $releaseArr)
     {
         $release = new Release();
-        $release->parseFromArray($releaseArr);
+        $release->createFromArray($releaseArr);
         $this->addRelease($release);
     }
 
@@ -134,6 +134,22 @@ class Changelog
         }
 
         return $this;
+    }
+
+    /**
+     * Get specific release by version string
+     * @return Release|null
+     */
+    public function getRelease($versionString)
+    {
+        foreach ($this->getReleases() as $release) {
+            /* @var Release $release */
+            if ($release->getVersionString() === $versionString) {
+                return $release;
+            }
+        }
+
+        return null;
     }
 
     /**

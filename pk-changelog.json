@@ -4,13 +4,43 @@
   "releases": [
     {
       "version": "0.3.0",
-      "date": "2018-02-21",
+      "date": "2018-02-26",
       "remarks": "Simple markdown presenter, new progress-keeper command, Travis CI integration and more.",
       "changelog": [
         {
           "date": "2018-02-21",
           "type": "chore",
           "desc": "Locked composer deps to PHP 5.6 compatible versions.",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-26",
+          "type": "feat",
+          "desc": "Added new reader type: Markdown. Parses a markdown changelog from AST which is structured like the one the markdown presenter generates.",
+          "audience": "*"
+        },
+        {
+          "date": "2018-02-25",
+          "type": "upd",
+          "desc": "BREAKING CHANGE: Markdown presenter now renders types in the form 'type:' instead of '[type]'.",
+          "audience": "*"
+        },
+        {
+          "date": "2018-02-25",
+          "type": "refac",
+          "desc": "BREAKING CHANGE: Renamed methods for parsing changelog, releases and log entries from from array to readFromArray().",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-25",
+          "type": "refac",
+          "desc": "BREAKING CHANGE: Changed signature of LogEntryType constructor now parsing first argument as 'conventional commit message'.",
+          "audience": "dev"
+        },
+        {
+          "date": "2018-02-25",
+          "type": "feat",
+          "desc": "Extended LogEntryType by introducing field 'scope' and adding methods parsing type, scope and description from conventional commit messages and types.",
           "audience": "dev"
         },
         {

@@ -55,7 +55,7 @@ class Release
      * @throws ReleaseException
      * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
      */
-    public function parseFromArray(array $releaseArr)
+    public function createFromArray(array $releaseArr)
     {
         $mandatoryKeys = ['date', 'version'];
 
@@ -158,19 +158,36 @@ class Release
     public function addLogEntryFromArray(array $logEntryArr)
     {
         $logEntry = new LogEntry();
-        $logEntry->parseFromArray($logEntryArr);
+        $logEntry->createFromArray($logEntryArr);
         $this->addLogEntry($logEntry);
     }
 
     /**
-     * @param LogEntryType $type
+     * @param $type
      * @return array
+     * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
      */
-    public function getLogEntriesByType(LogEntryType $type)
+    public function getLogEntriesByType($type)
     {
-        return array_filter($this->getLogEntries(), function ($logEntry) use ($type) {
+        $canonicalType = LogEntryType::getCanonicalIdentifier($type);
+        return array_filter($this->getLogEntries(), function ($logEntry) use ($canonicalType) {
             /* @var LogEntry $logEntry */
-            return $logEntry->getType() === $type;
+            return $logEntry->getType() === $canonicalType;
+        });
+    }
+
+    /**
+     * @param $ccType
+     * @return array
+     * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
+     */
+    public function getLogEntriesByCcType($ccType)
+    {
+        $ccTypeElements = LogEntry::parseElementsFromCcType($ccType);
+
+        return array_filter($this->getLogEntries(), function ($logEntry) use ($ccTypeElements) {
+            /* @var LogEntry $logEntry */
+            return $logEntry->getType() === $ccTypeElements['type'] && $logEntry->getScope() === $ccTypeElements['scope'];
         });
     }
 

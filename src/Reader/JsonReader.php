@@ -32,7 +32,7 @@ class JsonReader extends AbstractReader implements ReaderInterface
     {
         $rawVersionLog = $this->getRawVersionLog();
         $changelog = new Changelog();
-        $changelog->parseFromArray($rawVersionLog);
+        $changelog->createFromArray($rawVersionLog);
         return $changelog;
     }
 
