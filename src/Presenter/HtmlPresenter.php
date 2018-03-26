@@ -17,16 +17,16 @@ class HtmlPresenter extends AbstractPresenter implements PresenterInterface
     public function getOutput()
     {
         $ret  = $this->gi(0) . '<div class="pk">' . "\n";
-        $ret .= $this->gi(1) . '<h1 class="pk-name">' . $this->changelog->getApplicationName() . '</h1>' . "\n";
-        $ret .= $this->gi(1) . '<span class="pk-desc">' . $this->changelog->getApplicationDesc() . '</span>' . "\n";
+        $ret .= $this->gi(1) . '<h1 class="pk-name">' . htmlentities($this->changelog->getApplicationName()) . '</h1>' . "\n";
+        $ret .= $this->gi(1) . '<span class="pk-desc">' . htmlentities($this->changelog->getApplicationDesc()) . '</span>' . "\n";
         $ret .= $this->gi(1) . '<div class="pk-releases">' . "\n";
 
         foreach ($this->changelog->getReleases() as $release) {
             /* @var Release $release */
             $ret .= $this->gi(2) . '<div class="pk-release">' . "\n";
-            $ret .= $this->gi(3) . '<h2 class="pk-release-version">' . $release->getVersionString() . '</h2>' . "\n";
+            $ret .= $this->gi(3) . '<h2 class="pk-release-version">' . htmlentities($release->getVersionString()) . '</h2>' . "\n";
             $ret .= $this->gi(3) . '<p class="pk-release-date">Date: ' . $release->getDate()->format('d.m.Y') . '</p>' . "\n";
-            $ret .= $this->gi(3) . '<p class="pk-release-desc">' . $release->getDesc() . '</p>' . "\n";
+            $ret .= $this->gi(3) . '<p class="pk-release-desc">' . htmlentities($release->getDesc()) . '</p>' . "\n";
             $ret .= $this->gi(3) . '<ul class="pk-logentries">' . "\n";
 
             foreach ($release->getLogEntries() as $logEntry) {
@@ -39,7 +39,7 @@ class HtmlPresenter extends AbstractPresenter implements PresenterInterface
                     $ret .= '(' . $logEntry->getScope() . ') ';
                 }
 
-                $ret .= $logEntry->getDesc();
+                $ret .= htmlentities($logEntry->getDesc());
                 $ret .= '</span>' . "\n";
                 $ret .= $this->gi(4) . '</li>' . "\n";
             }

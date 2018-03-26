@@ -1,6 +1,14 @@
 # Progress-Keeper
 Track, transform and present changelog entries.
 
+## 0.3.2
+
+Date: 26.03.2018
+
+Small bugfix release providing a fix for the HTML presenter.
+
+- fix: HTML presenter won't convert special characters into their corresponding html entities.
+
 ## 0.3.1
 
 Date: 26.02.2018

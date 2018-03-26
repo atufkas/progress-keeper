@@ -26,6 +26,7 @@ class PresenterTest extends ChangelogTestCase
 
         $this->assertStringStartsWith('<div class="pk">', $htmlChangelog);
         $this->assertStringEndsWith("</div>\n", $htmlChangelog);
+        $this->assertContains('&quot;Sam Foo &lt;samfoo@example.com&gt;&quot;', $htmlChangelog);
     }
 
     /**

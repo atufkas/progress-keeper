@@ -17,7 +17,7 @@ Date: 24.01.2018
 This version introduces this release log, updates internal dependencies and adds support for docker.
 
 - feat: Changes will now be tracked and displayed with ProgressKeeper using JSON files and HTML-Bootstrap rendering.
-- feat: Added server side validation for form fields.
+- feat: Added server side validation for form fields, including mail address formats like "Sam Foo <samfoo@example.com>".
 - feat: Modernized server side runtime environment, improving overall stability.
 - upd(ui): Form field 'gender' is now rendered as radio button instead of select menu.
 - chore: Set platform dependency to PHP >= 5.6.0.
