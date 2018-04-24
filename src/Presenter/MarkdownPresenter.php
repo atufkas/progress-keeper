@@ -1,6 +1,7 @@
 <?php
 
 namespace atufkas\ProgressKeeper\Presenter;
+
 use atufkas\ProgressKeeper\LogEntry\LogEntry;
 use atufkas\ProgressKeeper\Release\Release;
 
@@ -15,8 +16,8 @@ class MarkdownPresenter extends AbstractPresenter implements PresenterInterface
      */
     public function getOutput()
     {
-        $ret  = '# ' . $this->changelog->getApplicationName() . "\n";
-        $ret .=  $this->changelog->getApplicationDesc() . "\n";
+        $ret = '# ' . $this->changelog->getApplicationName() . "\n";
+        $ret .= $this->changelog->getApplicationDesc() . "\n";
         $ret .= "\n";
 
         foreach ($this->changelog->getReleases() as $release) {

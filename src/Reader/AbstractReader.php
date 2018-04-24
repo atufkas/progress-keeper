@@ -1,6 +1,7 @@
 <?php
 
 namespace atufkas\ProgressKeeper\Reader;
+
 use atufkas\ProgressKeeper\Changelog;
 
 /**

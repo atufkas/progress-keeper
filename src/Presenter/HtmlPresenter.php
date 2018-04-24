@@ -16,7 +16,7 @@ class HtmlPresenter extends AbstractPresenter implements PresenterInterface
      */
     public function getOutput()
     {
-        $ret  = $this->gi(0) . '<div class="pk">' . "\n";
+        $ret = $this->gi(0) . '<div class="pk">' . "\n";
         $ret .= $this->gi(1) . '<h1 class="pk-name">' . htmlentities($this->changelog->getApplicationName()) . '</h1>' . "\n";
         $ret .= $this->gi(1) . '<span class="pk-desc">' . htmlentities($this->changelog->getApplicationDesc()) . '</span>' . "\n";
         $ret .= $this->gi(1) . '<div class="pk-releases">' . "\n";
