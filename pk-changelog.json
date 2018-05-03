@@ -10,6 +10,12 @@
         {
           "date": "2018-05-03",
           "type": "chore",
+          "desc": "Updated to latest composer version (included as phar file).",
+          "audience": "*"
+        }
+        {
+          "date": "2018-05-03",
+          "type": "chore",
           "desc": "Updated dependency on league/commonmark (0.17.0 -> 0.17.5).",
           "audience": "*"
         }
