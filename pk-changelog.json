@@ -12,7 +12,7 @@
           "type": "chore",
           "desc": "Updated to latest composer version (included as phar file).",
           "audience": "*"
-        }
+        },
         {
           "date": "2018-05-03",
           "type": "chore",
