@@ -1,6 +1,15 @@
 # Progress-Keeper
 Track, transform and present changelog entries.
 
+## 0.3.3
+
+Date: 03.05.2018
+
+Small service release with few updates on internal dependencies.
+
+- chore: Updated to latest composer version (included as phar file).
+- chore: Updated dependency on league/commonmark (0.17.0 -> 0.17.5).
+
 ## 0.3.2
 
 Date: 26.03.2018
