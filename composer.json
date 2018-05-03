@@ -19,10 +19,10 @@
   },
   "require": {
     "php": ">=5.6.5",
-    "league/commonmark": "=0.17.0"
+    "league/commonmark": "~0.17"
   },
   "require-dev": {
-    "phpunit/phpunit": "^5.7"
+    "phpunit/phpunit": "^5.7|^6.5"
   },
   "scripts": {
     "test": [
