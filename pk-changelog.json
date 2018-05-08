@@ -3,6 +3,20 @@
   "desc": "Track, transform and present changelog entries.",
   "releases": [
     {
+      "version": "0.4.1",
+      "date": "2018-05-08",
+      "remarks": "To be announced.",
+      "changelog": [
+        {
+          "date": "2018-05-08",
+          "type": "upd",
+          "scope": "doc",
+          "desc": "Added log entry example using field 'scope' (JSON sample snippet in README).",
+          "audience": "*"
+        }
+      ]
+    },
+    {
       "version": "0.4.0",
       "date": "2018-05-08",
       "remarks": "This release has an improved README with some detailed API usage examples.",

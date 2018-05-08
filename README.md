@@ -127,6 +127,13 @@ breaking changes are introduced frequently. Currently this library provides:
               "type": "fix(ui)",
               "desc": "Validation failed when whitespace was transmitted via form value.",
               "audience": "*"
+            },
+            {
+              "date": "2018-01-17",
+              "type": "chore",
+              "scope": "ci",
+              "desc": "Added support for Travis CI.",
+              "audience": "dev"
             }
           ]
         },

@@ -1,6 +1,14 @@
 # Progress-Keeper
 Track, transform and present changelog entries.
 
+## 0.4.1
+
+Date: 08.05.2018
+
+To be announced.
+
+- upd(doc): Added log entry example using field 'scope' (JSON sample snippet in README).
+
 ## 0.4.0
 
 Date: 08.05.2018
