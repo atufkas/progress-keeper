@@ -11,13 +11,13 @@
           "date": "2018-05-08",
           "type": "upd",
           "scope": "doc",
-          "desc": "Improved docs/README by adding CLI and API usage examples and re-ordering some paragraphs.",
+          "desc": "Added CLI and API usage examples and re-ordered some paragraphs in README.",
           "audience": "*"
         },
         {
           "date": "2018-05-08",
           "type": "upd",
-          "desc": "Improved progress-keeper cli to dump usage information if parameters are missing.",
+          "desc": "progress-keeper CLI now dumps usage information if parameters are missing.",
           "audience": "*"
         }
       ]

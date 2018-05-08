@@ -1,6 +1,15 @@
 # Progress-Keeper
 Track, transform and present changelog entries.
 
+## 0.4.0
+
+Date: 08.05.2018
+
+This release has an improved README with some detailed API usage examples.
+
+- upd(doc): Added CLI and API usage examples and re-ordered some paragraphs in README.
+- upd: progress-keeper CLI now dumps usage information if parameters are missing.
+
 ## 0.3.4
 
 Date: 08.05.2018
