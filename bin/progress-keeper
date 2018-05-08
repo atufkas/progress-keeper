@@ -3,6 +3,16 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+if (count($argv) < 4) {
+    echo "Purpose: Converts a changelog input file/format to given output format and writes results to stdout.\n";
+    echo "Usage: progress-keeper <source-file> <source-format> <target-format>\n";
+    echo "\n";
+    echo "Example:\n";
+    echo "$ progress-keeper pk-changelog.json json markdown > pk-changelog.md\n";
+    echo "\n";
+    exit;
+}
+
 try {
     $out = \atufkas\ProgressKeeper\ProgressKeeperFactory::getConvertedChangelog($argv[1], $argv[2], $argv[3], ['*'], true);
 } catch (Exception $e) {
