@@ -33,9 +33,10 @@ class Release
 
     /**
      * Release constructor.
-     * @param string $versionString
-     * @param \DateTimeImmutable $date
-     * @param string $desc
+     * @param null $versionString
+     * @param \DateTimeImmutable|null $date
+     * @param null $desc
+     * @throws \Exception
      */
     public function __construct($versionString = null, \DateTimeImmutable $date = null, $desc = null)
     {

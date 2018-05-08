@@ -39,6 +39,7 @@ class MarkdownReader extends AbstractReader implements ReaderInterface
      * @throws \atufkas\ProgressKeeper\ChangelogException
      * @throws \atufkas\ProgressKeeper\LogEntry\LogEntryException
      * @throws \atufkas\ProgressKeeper\Release\ReleaseException
+     * @throws \Exception
      */
     public function getChangelog()
     {
