@@ -7,6 +7,7 @@ Date: 08.05.2018
 
 Another service release with few updates on internal dependencies.
 
+- upd(ci): Changed install workflow to 'composer update' (instead of install).
 - chore: Adjusted composer dependencies for alternative php versions (5 or 7) again.
 
 ## 0.3.3

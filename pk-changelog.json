@@ -9,6 +9,13 @@
       "changelog": [
         {
           "date": "2018-05-08",
+          "type": "upd",
+          "scope": "ci",
+          "desc": "Changed install workflow to 'composer update' (instead of install).",
+          "audience": "*"
+        },
+        {
+          "date": "2018-05-08",
           "type": "chore",
           "desc": "Adjusted composer dependencies for alternative php versions (5 or 7) again.",
           "audience": "*"
