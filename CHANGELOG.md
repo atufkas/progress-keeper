@@ -1,6 +1,14 @@
 # Progress-Keeper
 Track, transform and present changelog entries.
 
+## 0.3.4
+
+Date: 08.05.2018
+
+Another service release with few updates on internal dependencies.
+
+- chore: Adjusted composer dependencies for alternative php versions (5 or 7) again.
+
 ## 0.3.3
 
 Date: 03.05.2018
