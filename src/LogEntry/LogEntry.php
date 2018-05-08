@@ -46,10 +46,11 @@ class LogEntry
 
     /**
      * LogEntry constructor.
-     * @param string $ccMessage
+     * @param null $ccMessage
      * @param string $audience
      * @param \DateTimeImmutable|null $date
      * @throws LogEntryException
+     * @throws \Exception
      */
     public function __construct($ccMessage = null, $audience = '*', \DateTimeImmutable $date = null)
     {
