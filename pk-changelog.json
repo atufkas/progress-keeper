@@ -5,8 +5,15 @@
     {
       "version": "0.4.0",
       "date": "2018-05-08",
-      "remarks": "",
+      "remarks": "This release has an improved README with some detailed API usage examples.",
       "changelog": [
+        {
+          "date": "2018-05-08",
+          "type": "upd",
+          "scope": "doc",
+          "desc": "Improved docs/README by adding CLI and API usage examples and re-ordering some paragraphs.",
+          "audience": "*"
+        },
         {
           "date": "2018-05-08",
           "type": "upd",
